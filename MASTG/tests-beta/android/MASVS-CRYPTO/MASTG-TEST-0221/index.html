@@ -18931,6 +18931,7 @@
 <p>The output should contain a list of locations where insecure symmetric encryption algorithms are used.</p>
 <h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
 <p>The test case fails if you can find <a href="../../../../0x04g-Testing-Cryptography/#Identifying-Insecure-and/or-Deprecated-Cryptographic-Algorithms">insecure or deprecated</a> encryption algorithms being used.</p>
+<p>For example, <a href="https://developer.android.com/privacy-and-security/risks/broken-cryptographic-algorithm">DES (Data Encryption Standard) and 3DES (Triple DES)</a>, are deprecated by <a href="https://csrc.nist.gov/publications/detail/sp/800-131a/rev-2/final">NIST SP 800-131A Rev. 2</a> due to vulnerabilities such as brute-force attacks and meet-in-the-middle attacks. Replace them with stronger alternatives, such as <a href="https://developer.android.com/privacy-and-security/cryptography#choose-algorithm">AES-256</a>, which is widely recognized as secure for modern apps.</p>
 
 
 
