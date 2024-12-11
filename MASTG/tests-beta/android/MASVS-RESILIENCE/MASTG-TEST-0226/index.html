@@ -5908,6 +5908,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -6086,6 +6090,52 @@
   
   <span class="md-ellipsis">
     MASTG-BEST-0006: Use Up-to-Date APK Signing Schemes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../best-practices/MASTG-BEST-0007/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-8L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-BEST-0007: Debuggable Flag Disabled in the AndroidManifest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../best-practices/MASTG-BEST-0008/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-8L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-BEST-0008: Debugging Disabled for WebViews
   </span>
   
 
@@ -10151,8 +10201,16 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.03 8.28a.75.75 0 0 0-1.06-1.06l-5.22 5.22-2.22-2.22a.75.75 0 1 0-1.06 1.06l2.75 2.75a.75.75 0 0 0 1.06 0z"/><path d="M0 10.5C0 4.701 4.701 0 10.5 0S21 4.701 21 10.5c0 2.63-.967 5.033-2.564 6.875l4.344 4.345a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-4.345-4.344A10.46 10.46 0 0 1 10.5 21C4.701 21 0 16.299 0 10.5m10.5-9a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9"/></svg>
   
   <span class="md-ellipsis">
-    MASTG-TEST-0237: 
+    MASTG-TEST-0237: Cross-Platform Framework Configurations Allowing Cleartext Traffic
   </span>
+  
+    
+  
+  
+    <span class="md-status md-status--draft" title="This page is in draft.">
+    </span>
+  
+
   
 
       </a>
@@ -10508,6 +10566,15 @@
   <a href="#evaluation" class="md-nav__link">
     <span class="md-ellipsis">
       Evaluation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mitigations
     </span>
   </a>
   
@@ -20440,6 +20507,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mitigations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mitigations
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -20601,8 +20677,10 @@
 <p>The output should explicitly show whether the <code>debuggable</code> flag is set (<code>true</code> or <code>false</code>). If the flag is not specified, it is treated as <code>false</code> by default for release builds.</p>
 <h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>
 <p>The test case fails if the <code>debuggable</code> flag is explicitly set to <code>true</code>. This indicates that the app is configured to allow debugging, which is inappropriate for production environments.</p>
-<p>To mitigate this issue, ensure the debuggable flag in the AndroidManifest.xml is set to false for all release builds.</p>
-<p><strong>Note:</strong> Disabling debugging via the <code>debuggable</code> flag is an important first step but does not fully protect the app from advanced attacks. Skilled attackers can enable debugging through various means, such as binary patching (see <em><a href="../../../../techniques/android/MASTG-TECH-0038/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Patching</a></em>) to allow attachment of a debugger or the use of binary instrumentation tools like <em><a href="../../../../tools/android/MASTG-TOOL-0001/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> Frida for Android</a></em> to achieve similar capabilities. For apps requiring a higher level of security, consider implementing anti-debugging techniques as an additional layer of defense. Refer to <em><a href="../../../../../MASWE/MASVS-RESILIENCE/MASWE-0101/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 15.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-.25-8.25a.75.75 0 0 0-1.5 0v4.5a.75.75 0 0 0 1.5 0z"/><path d="M11.46.637a1.75 1.75 0 0 1 1.08 0l8.25 2.675A1.75 1.75 0 0 1 22 4.976V10c0 6.19-3.77 10.705-9.401 12.83a1.7 1.7 0 0 1-1.198 0C5.771 20.704 2 16.19 2 10V4.976c0-.76.49-1.43 1.21-1.664Zm.617 1.426a.25.25 0 0 0-.154 0L3.673 4.74a.25.25 0 0 0-.173.237V10c0 5.461 3.28 9.483 8.43 11.426a.2.2 0 0 0 .14 0C17.22 19.483 20.5 15.46 20.5 10V4.976a.25.25 0 0 0-.173-.237Z"/></svg></span> Debugger Detection Not Implemented</a></em> for detailed guidance.</p>
+<h2 id="mitigations">Mitigations<a class="headerlink" href="#mitigations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><em><a href="../../../../best-practices/MASTG-BEST-0007/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-8L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg></span> Debuggable Flag Disabled in the AndroidManifest</a></em></li>
+</ul>
 
 
 
