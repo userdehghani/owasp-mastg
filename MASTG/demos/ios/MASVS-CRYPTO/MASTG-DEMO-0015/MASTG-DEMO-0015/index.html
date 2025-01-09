@@ -20758,8 +20758,8 @@
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">Foundation</span>
-<span class="kn">import</span> <span class="nn">CommonCrypto</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">Foundation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">CommonCrypto</span>
 
 <span class="n">struct</span> <span class="n">MastgTest</span> <span class="p">{</span>
     <span class="o">//</span> <span class="n">Function</span> <span class="n">to</span> <span class="n">generate</span> <span class="n">a</span> <span class="n">SHA</span><span class="o">-</span><span class="mi">1</span> <span class="nb">hash</span>
@@ -20902,12 +20902,12 @@
             <span class="mh">0x1000048b8</span>      <span class="n">e01b00f9</span>       <span class="nb">str</span> <span class="n">x0</span><span class="p">,</span> <span class="p">[</span><span class="n">sp</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">]</span>
             <span class="mh">0x1000048bc</span>      <span class="n">e0630091</span>       <span class="n">add</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="mh">0x18</span>
             <span class="mh">0x1000048c0</span>      <span class="mi">01008052</span>       <span class="n">mov</span> <span class="n">w1</span><span class="p">,</span> <span class="mi">0</span>
-            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span> <span class="nn">sym.func.</span><span class="mi">100004728</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0xf0</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sym.func.</span><span class="mi">100004728</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0xf0</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="mh">0x1000048c4</span>      <span class="mi">390</span><span class="n">a0094</span>       <span class="n">bl</span> <span class="n">sym</span><span class="o">.</span><span class="n">imp</span><span class="o">.</span><span class="n">CC_MD5</span>
             <span class="mh">0x1000048c8</span>      <span class="n">e00316aa</span>       <span class="n">mov</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x22</span>
             <span class="mh">0x1000048cc</span>      <span class="n">e10314aa</span>       <span class="n">mov</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x20</span>
             <span class="mh">0x1000048d0</span>      <span class="mi">7</span><span class="n">d000094</span>       <span class="n">bl</span> <span class="n">sym</span><span class="o">.</span><span class="n">func</span><span class="mf">.100004</span><span class="n">ac4</span>
-            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span> <span class="nn">sym.func.</span><span class="mi">100004728</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0x184</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sym.func.</span><span class="mi">100004728</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0x184</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="mh">0x1000048d4</span>      <span class="n">e00316aa</span>       <span class="n">mov</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x22</span>
 
 <span class="n">Use</span> <span class="n">of</span> <span class="n">SHA1</span><span class="p">:</span>
@@ -20916,12 +20916,12 @@
             <span class="mh">0x100004560</span>      <span class="n">e01b00f9</span>       <span class="nb">str</span> <span class="n">x0</span><span class="p">,</span> <span class="p">[</span><span class="n">sp</span><span class="p">,</span> <span class="mh">0x30</span><span class="p">]</span>
             <span class="mh">0x100004564</span>      <span class="n">e0630091</span>       <span class="n">add</span> <span class="n">x0</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="mh">0x18</span>
             <span class="mh">0x100004568</span>      <span class="mi">01008052</span>       <span class="n">mov</span> <span class="n">w1</span><span class="p">,</span> <span class="mi">0</span>
-            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span> <span class="nn">sym.func.</span><span class="mi">1000043</span><span class="n">cc</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0xf4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sym.func.</span><span class="mi">1000043</span><span class="n">cc</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0xf4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="mh">0x10000456c</span>      <span class="mi">120</span><span class="n">b0094</span>       <span class="n">bl</span> <span class="n">sym</span><span class="o">.</span><span class="n">imp</span><span class="o">.</span><span class="n">CC_SHA1</span>
             <span class="mh">0x100004570</span>      <span class="n">e00316aa</span>       <span class="n">mov</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x22</span>
             <span class="mh">0x100004574</span>      <span class="n">e10314aa</span>       <span class="n">mov</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x20</span>
             <span class="mh">0x100004578</span>      <span class="mi">53010094</span>       <span class="n">bl</span> <span class="n">sym</span><span class="o">.</span><span class="n">func</span><span class="mf">.100004</span><span class="n">ac4</span>
-            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span> <span class="nn">sym.func.</span><span class="mi">1000043</span><span class="n">cc</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0x188</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="p">;</span> <span class="n">CODE</span> <span class="n">XREF</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sym.func.</span><span class="mi">1000043</span><span class="n">cc</span> <span class="o">@</span> <span class="o">+</span><span class="mh">0x188</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="mh">0x10000457c</span>      <span class="n">e00316aa</span>       <span class="n">mov</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x22</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h3>

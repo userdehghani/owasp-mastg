@@ -20714,9 +20714,9 @@
 <p>While allocating memory for Unicorn, the memory addresses should be 4k page aligned and also the allocated size should be a multiple of 1024.</p>
 </blockquote>
 <p>The following script emulates the function at 0x1000080d4 and dumps the secret string:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">lief</span>
-<span class="kn">from</span> <span class="nn">unicorn</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">unicorn.arm64_const</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">lief</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unicorn</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unicorn.arm64_const</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 <span class="c1"># --- Extract __text and __data section content from the binary ---</span>
 <span class="n">binary</span> <span class="o">=</span> <span class="n">lief</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;uncrackable.arm64&quot;</span><span class="p">)</span>

@@ -20757,27 +20757,27 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>The following is sample Swift code for excluding a file from a backup on iOS 5.1 and later, see <a href="https://bencoding.com/2017/02/20/swift-excluding-files-from-icloud-backup/">Swift excluding files from iCloud backup</a> for more information:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">enum</span> <span class="nc">ExcludeFileError</span><span class="p">:</span> <span class="n">Error</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">fileDoesNotExist</span>
-    <span class="k">case</span> <span class="n">error</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kd">enum</span><span class="w"> </span><span class="nc">ExcludeFileError</span><span class="p">:</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">fileDoesNotExist</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">error</span><span class="p">(</span><span class="nb">String</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">excludeFileFromBackup</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span> <span class="n">URL</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Result</span><span class="p">&lt;</span><span class="nb">Bool</span><span class="p">,</span> <span class="n">ExcludeFileError</span><span class="p">&gt;</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nv">file</span> <span class="p">=</span> <span class="n">filePath</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">excludeFileFromBackup</span><span class="p">(</span><span class="n">filePath</span><span class="p">:</span><span class="w"> </span><span class="n">URL</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Result</span><span class="p">&lt;</span><span class="nb">Bool</span><span class="p">,</span><span class="w"> </span><span class="n">ExcludeFileError</span><span class="p">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">filePath</span>
 
-    <span class="k">do</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="n">FileManager</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">fileExists</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span> <span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nv">res</span> <span class="p">=</span> <span class="n">URLResourceValues</span><span class="p">()</span>
-            <span class="n">res</span><span class="p">.</span><span class="n">isExcludedFromBackup</span> <span class="p">=</span> <span class="kc">true</span>
-            <span class="k">try</span> <span class="n">file</span><span class="p">.</span><span class="n">setResourceValues</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-            <span class="k">return</span> <span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">FileManager</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="n">fileExists</span><span class="p">(</span><span class="n">atPath</span><span class="p">:</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">path</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">var</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">URLResourceValues</span><span class="p">()</span>
+<span class="w">            </span><span class="n">res</span><span class="p">.</span><span class="n">isExcludedFromBackup</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="n">file</span><span class="p">.</span><span class="n">setResourceValues</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">success</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="p">.</span><span class="n">failure</span><span class="p">(.</span><span class="n">fileDoesNotExist</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">.</span><span class="n">failure</span><span class="p">(.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Error excluding </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="si">)</span><span class="s"> from backup </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">))</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">failure</span><span class="p">(.</span><span class="n">fileDoesNotExist</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">.</span><span class="n">failure</span><span class="p">(.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Error excluding </span><span class="si">\(</span><span class="n">file</span><span class="p">.</span><span class="n">lastPathComponent</span><span class="si">)</span><span class="s"> from backup </span><span class="si">\(</span><span class="n">error</span><span class="si">)</span><span class="s">&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>

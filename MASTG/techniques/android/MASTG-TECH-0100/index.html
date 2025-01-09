@@ -20591,7 +20591,7 @@
 <p>Once with mitmproxy installed and your device configured to use it, you can create a python script to filter the traffic and extract the sensitive data. For example, the following script will extract all the data sent in the requests and responses only if the data is considered sensitive. For this example we consider sensitive data to be any data that contains the strings "dummyPassword" or "sampleUser", so we include them in the <code>SENSITIVE_STRINGS</code> list.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># mitm_sensitive_logger.py</span>
 
-<span class="kn">from</span> <span class="nn">mitmproxy</span> <span class="kn">import</span> <span class="n">http</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mitmproxy</span><span class="w"> </span><span class="kn">import</span> <span class="n">http</span>
 
 <span class="c1"># This data would come from another file and should be defined after identifying the data that is considered sensitive for this application.</span>
 <span class="c1"># For example by using the Google Play Store Data Safety section.</span>
@@ -20606,10 +20606,10 @@
 
 <span class="n">SENSITIVE_STRINGS</span> <span class="o">=</span> <span class="n">SENSITIVE_DATA</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">contains_sensitive_data</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">contains_sensitive_data</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">sensitive</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">for</span> <span class="n">sensitive</span> <span class="ow">in</span> <span class="n">SENSITIVE_STRINGS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">pretty_url</span>
     <span class="n">request_headers</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
     <span class="n">request_body</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">text</span>
@@ -20628,10 +20628,10 @@
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;REQUEST URL: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request Headers: </span><span class="si">{</span><span class="n">request_headers</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request Body: </span><span class="si">{</span><span class="n">request_body</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">request</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
     <span class="n">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">response</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
     <span class="n">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
 </code></pre></div>
 <p>Now you can run mitmproxy with the script:</p>

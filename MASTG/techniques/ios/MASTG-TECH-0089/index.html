@@ -20664,10 +20664,10 @@
 <li>Pass the above <code>callable</code> object to the concrete execution engine, which in this case is <code>claripy.backends.concrete</code>.</li>
 <li>Access the memory and extract the string from the pointer returned by the above function.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">angr</span>
-<span class="kn">import</span> <span class="nn">claripy</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">angr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">claripy</span>
 
-<span class="k">def</span> <span class="nf">solve</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">():</span>
 
     <span class="c1"># Load the binary by creating angr project.</span>
     <span class="n">project</span> <span class="o">=</span> <span class="n">angr</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="s1">&#39;uncrackable.arm64&#39;</span><span class="p">)</span>

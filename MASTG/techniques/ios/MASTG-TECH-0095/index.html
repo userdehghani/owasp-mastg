@@ -20653,8 +20653,8 @@
 <div class="highlight"><pre><span></span><code><span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">initWithURL:</span><span class="p">(</span><span class="bp">NSURL</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="nv">url</span><span class="p">;</span>
 </code></pre></div>
 <p>Using this information we can write a Frida script that intercepts the <code>initWithURL:</code> method and prints the URL passed to the method. The full script is below. Make sure you read the code and inline comments to understand what's going on.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">frida</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">frida</span>
 
 
 <span class="c1"># JavaScript to be injected</span>

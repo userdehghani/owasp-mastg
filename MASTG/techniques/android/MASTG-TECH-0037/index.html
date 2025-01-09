@@ -20719,8 +20719,8 @@ Incorrect<span class="w"> </span>serial<span class="w"> </span><span class="o">(
 <p>Note that the Angr loader will load the PIE executable with a base address of <code>0x400000</code>, which needs to be added to the offsets from iaito before passing it to Angr.</p>
 </blockquote>
 <p>The final solution script is presented below:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">angr</span> <span class="c1"># Version: 9.2.2</span>
-<span class="kn">import</span> <span class="nn">base64</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">angr</span> <span class="c1"># Version: 9.2.2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 
 <span class="n">load_options</span> <span class="o">=</span> <span class="p">{}</span>
 

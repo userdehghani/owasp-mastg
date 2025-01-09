@@ -20758,42 +20758,42 @@
 <span class="normal">34</span>
 <span class="normal">35</span>
 <span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">import</span> <span class="nc">SwiftUI</span>
-<span class="kd">import</span> <span class="nc">CommonCrypto</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">import</span><span class="w"> </span><span class="nc">SwiftUI</span>
+<span class="kd">import</span><span class="w"> </span><span class="nc">CommonCrypto</span>
 
-<span class="kd">struct</span> <span class="nc">MastgTest</span> <span class="p">{</span>
-    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">mastgTest</span><span class="p">(</span><span class="n">completion</span><span class="p">:</span> <span class="p">@</span><span class="n">escaping</span> <span class="p">(</span><span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nb">Void</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nv">key</span> <span class="p">=</span> <span class="s">&quot;0123456789abcdef01234567&quot;</span> <span class="c1">// 24-byte key for 3DES</span>
-        <span class="kd">let</span> <span class="nv">data</span> <span class="p">=</span> <span class="s">&quot;This is a sample text&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span>
+<span class="kd">struct</span><span class="w"> </span><span class="nc">MastgTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nf">mastgTest</span><span class="p">(</span><span class="n">completion</span><span class="p">:</span><span class="w"> </span><span class="p">@</span><span class="n">escaping</span><span class="w"> </span><span class="p">(</span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">Void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">key</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;0123456789abcdef01234567&quot;</span><span class="w"> </span><span class="c1">// 24-byte key for 3DES</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;This is a sample text&quot;</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">utf8</span><span class="p">)</span><span class="o">!</span>
 
-        <span class="c1">// Create a buffer for encrypted data</span>
-        <span class="kd">var</span> <span class="nv">encryptedBytes</span> <span class="p">=</span> <span class="p">[</span><span class="nb">UInt8</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">data</span><span class="p">.</span><span class="bp">count</span> <span class="o">+</span> <span class="n">kCCBlockSize3DES</span><span class="p">)</span>
-        <span class="kd">var</span> <span class="nv">numBytesEncrypted</span><span class="p">:</span> <span class="n">size_t</span> <span class="p">=</span> <span class="mi">0</span>
+<span class="w">        </span><span class="c1">// Create a buffer for encrypted data</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">encryptedBytes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nb">UInt8</span><span class="p">](</span><span class="n">repeating</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="bp">count</span><span class="p">:</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kCCBlockSize3DES</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nv">numBytesEncrypted</span><span class="p">:</span><span class="w"> </span><span class="n">size_t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
 
-        <span class="kd">let</span> <span class="nv">cryptStatus</span> <span class="p">=</span> <span class="n">data</span><span class="p">.</span><span class="n">withUnsafeBytes</span> <span class="p">{</span> <span class="n">dataBytes</span> <span class="k">in</span>
-            <span class="n">key</span><span class="p">.</span><span class="n">withCString</span> <span class="p">{</span> <span class="n">keyBytes</span> <span class="k">in</span>
-                <span class="n">CCCrypt</span><span class="p">(</span>
-                    <span class="n">CCOperation</span><span class="p">(</span><span class="n">kCCEncrypt</span><span class="p">),</span>              <span class="c1">// Encrypt</span>
-                    <span class="n">CCAlgorithm</span><span class="p">(</span><span class="n">kCCAlgorithm3DES</span><span class="p">),</span>        <span class="c1">// 3DES Algorithm</span>
-                    <span class="n">CCOptions</span><span class="p">(</span><span class="n">kCCOptionPKCS7Padding</span><span class="p">),</span>     <span class="c1">// PKCS7 Padding</span>
-                    <span class="n">keyBytes</span><span class="p">,</span> <span class="n">kCCKeySize3DES</span><span class="p">,</span>             <span class="c1">// Key and key length</span>
-                    <span class="kc">nil</span><span class="p">,</span>                                  <span class="c1">// Initialization Vector (optional)</span>
-                    <span class="n">dataBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span>    <span class="c1">// Input data</span>
-                    <span class="p">&amp;</span><span class="n">encryptedBytes</span><span class="p">,</span> <span class="n">encryptedBytes</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="c1">// Output data</span>
-                    <span class="p">&amp;</span><span class="n">numBytesEncrypted</span>                    <span class="c1">// Number of bytes encrypted</span>
-                <span class="p">)</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">cryptStatus</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="n">withUnsafeBytes</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dataBytes</span><span class="w"> </span><span class="k">in</span>
+<span class="w">            </span><span class="n">key</span><span class="p">.</span><span class="n">withCString</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">keyBytes</span><span class="w"> </span><span class="k">in</span>
+<span class="w">                </span><span class="n">CCCrypt</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">CCOperation</span><span class="p">(</span><span class="n">kCCEncrypt</span><span class="p">),</span><span class="w">              </span><span class="c1">// Encrypt</span>
+<span class="w">                    </span><span class="n">CCAlgorithm</span><span class="p">(</span><span class="n">kCCAlgorithm3DES</span><span class="p">),</span><span class="w">        </span><span class="c1">// 3DES Algorithm</span>
+<span class="w">                    </span><span class="n">CCOptions</span><span class="p">(</span><span class="n">kCCOptionPKCS7Padding</span><span class="p">),</span><span class="w">     </span><span class="c1">// PKCS7 Padding</span>
+<span class="w">                    </span><span class="n">keyBytes</span><span class="p">,</span><span class="w"> </span><span class="n">kCCKeySize3DES</span><span class="p">,</span><span class="w">             </span><span class="c1">// Key and key length</span>
+<span class="w">                    </span><span class="kc">nil</span><span class="p">,</span><span class="w">                                  </span><span class="c1">// Initialization Vector (optional)</span>
+<span class="w">                    </span><span class="n">dataBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span><span class="w">    </span><span class="c1">// Input data</span>
+<span class="w">                    </span><span class="p">&amp;</span><span class="n">encryptedBytes</span><span class="p">,</span><span class="w"> </span><span class="n">encryptedBytes</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span><span class="w"> </span><span class="c1">// Output data</span>
+<span class="w">                    </span><span class="p">&amp;</span><span class="n">numBytesEncrypted</span><span class="w">                    </span><span class="c1">// Number of bytes encrypted</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
 
-        <span class="k">if</span> <span class="n">cryptStatus</span> <span class="p">==</span> <span class="n">kCCSuccess</span> <span class="p">{</span>
-            <span class="kd">let</span> <span class="nv">encryptedData</span> <span class="p">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span> <span class="n">encryptedBytes</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">numBytesEncrypted</span><span class="p">)</span>
-            <span class="kd">let</span> <span class="nv">encryptedHex</span> <span class="p">=</span> <span class="n">encryptedData</span><span class="p">.</span><span class="bp">map</span> <span class="p">{</span> <span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span> <span class="s">&quot;%02hhx&quot;</span><span class="p">,</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}.</span><span class="n">joined</span><span class="p">()</span>
-            <span class="kd">let</span> <span class="nv">value</span> <span class="p">=</span> <span class="s">&quot;Original:</span><span class="se">\n\n</span><span class="s"> </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">data</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="si">)</span><span class="o">!</span><span class="si">)</span><span class="se">\n\n</span><span class="s">Encrypted (Hex):</span><span class="se">\n</span><span class="s"> </span><span class="si">\(</span><span class="n">encryptedHex</span><span class="si">)</span><span class="s">&quot;</span>
-            <span class="n">completion</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="n">completion</span><span class="p">(</span><span class="s">&quot;Encryption failed with status: </span><span class="si">\(</span><span class="n">cryptStatus</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">cryptStatus</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">kCCSuccess</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nv">encryptedData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="n">bytes</span><span class="p">:</span><span class="w"> </span><span class="n">encryptedBytes</span><span class="p">,</span><span class="w"> </span><span class="bp">count</span><span class="p">:</span><span class="w"> </span><span class="n">numBytesEncrypted</span><span class="p">)</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nv">encryptedHex</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">encryptedData</span><span class="p">.</span><span class="bp">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">String</span><span class="p">(</span><span class="n">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;%02hhx&quot;</span><span class="p">,</span><span class="w"> </span><span class="nv">$0</span><span class="p">)</span><span class="w"> </span><span class="p">}.</span><span class="n">joined</span><span class="p">()</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Original:</span><span class="se">\n\n</span><span class="s"> </span><span class="si">\(</span><span class="nb">String</span><span class="si">(</span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">encoding</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">utf8</span><span class="si">)</span><span class="o">!</span><span class="si">)</span><span class="se">\n\n</span><span class="s">Encrypted (Hex):</span><span class="se">\n</span><span class="s"> </span><span class="si">\(</span><span class="n">encryptedHex</span><span class="si">)</span><span class="s">&quot;</span>
+<span class="w">            </span><span class="n">completion</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">completion</span><span class="p">(</span><span class="s">&quot;Encryption failed with status: </span><span class="si">\(</span><span class="n">cryptStatus</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -21037,63 +21037,63 @@
 <span class="normal">59</span>
 <span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// ✨ Decompiled using OpenAI&#39;s ChatGPT o1-review model ✨</span>
 
-<span class="kd">import</span> <span class="nc">CommonCrypto</span>
+<span class="kd">import</span><span class="w"> </span><span class="nc">CommonCrypto</span>
 
-<span class="kd">func</span> <span class="nf">encryptSampleText</span><span class="p">()</span> <span class="p">-&gt;</span> <span class="nb">String</span><span class="p">?</span> <span class="p">{</span>
-    <span class="c1">// Step 1: Define the key and input text</span>
-    <span class="kd">let</span> <span class="nv">keyString</span> <span class="p">=</span> <span class="s">&quot;0123456789abcdef01234567&quot;</span>
-    <span class="kd">let</span> <span class="nv">inputText</span> <span class="p">=</span> <span class="s">&quot;This is a sample text&quot;</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">encryptSampleText</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nb">String</span><span class="p">?</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Step 1: Define the key and input text</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">keyString</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;0123456789abcdef01234567&quot;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">inputText</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;This is a sample text&quot;</span>
 
-    <span class="c1">// Step 2: Convert key and input text to Data</span>
-    <span class="k">guard</span> <span class="kd">let</span> <span class="nv">keyData</span> <span class="p">=</span> <span class="n">keyString</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">),</span>
-          <span class="kd">let</span> <span class="nv">inputData</span> <span class="p">=</span> <span class="n">inputText</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="p">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Failed to convert key or input text to data&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">nil</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">// Step 2: Convert key and input text to Data</span>
+<span class="w">    </span><span class="k">guard</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">keyData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">keyString</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">utf8</span><span class="p">),</span>
+<span class="w">          </span><span class="kd">let</span><span class="w"> </span><span class="nv">inputData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">inputText</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">using</span><span class="p">:</span><span class="w"> </span><span class="p">.</span><span class="n">utf8</span><span class="p">)</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Failed to convert key or input text to data&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">// Step 3: Set up the output buffer</span>
-    <span class="kd">let</span> <span class="nv">bufferSize</span> <span class="p">=</span> <span class="n">inputData</span><span class="p">.</span><span class="bp">count</span> <span class="o">+</span> <span class="n">kCCBlockSize3DES</span>
-    <span class="kd">var</span> <span class="nv">buffer</span> <span class="p">=</span> <span class="n">Data</span><span class="p">(</span><span class="bp">count</span><span class="p">:</span> <span class="n">bufferSize</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// Step 3: Set up the output buffer</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">bufferSize</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">inputData</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kCCBlockSize3DES</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">buffer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Data</span><span class="p">(</span><span class="bp">count</span><span class="p">:</span><span class="w"> </span><span class="n">bufferSize</span><span class="p">)</span>
 
-    <span class="c1">// Step 4: Perform encryption</span>
-    <span class="kd">var</span> <span class="nv">numBytesEncrypted</span> <span class="p">=</span> <span class="mi">0</span>
-    <span class="kd">let</span> <span class="nv">cryptStatus</span> <span class="p">=</span> <span class="n">keyData</span><span class="p">.</span><span class="n">withUnsafeBytes</span> <span class="p">{</span> <span class="n">keyBytes</span> <span class="k">in</span>
-        <span class="n">inputData</span><span class="p">.</span><span class="n">withUnsafeBytes</span> <span class="p">{</span> <span class="n">dataInBytes</span> <span class="k">in</span>
-            <span class="n">buffer</span><span class="p">.</span><span class="n">withUnsafeMutableBytes</span> <span class="p">{</span> <span class="n">bufferBytes</span> <span class="k">in</span>
-                <span class="n">CCCrypt</span><span class="p">(</span>
-                    <span class="n">CCOperation</span><span class="p">(</span><span class="n">kCCEncrypt</span><span class="p">),</span>                <span class="c1">// Operation</span>
-                    <span class="n">CCAlgorithm</span><span class="p">(</span><span class="n">kCCAlgorithm3DES</span><span class="p">),</span>          <span class="c1">// Algorithm</span>
-                    <span class="n">CCOptions</span><span class="p">(</span><span class="n">kCCOptionPKCS7Padding</span><span class="p">),</span>       <span class="c1">// Options</span>
-                    <span class="n">keyBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span>                   <span class="c1">// Key pointer</span>
-                    <span class="n">kCCKeySize3DES</span><span class="p">,</span>                         <span class="c1">// Key size</span>
-                    <span class="kc">nil</span><span class="p">,</span>                                    <span class="c1">// IV (nil for ECB mode)</span>
-                    <span class="n">dataInBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span>                <span class="c1">// Data In</span>
-                    <span class="n">inputData</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span>                        <span class="c1">// Data In Length</span>
-                    <span class="n">bufferBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span>                <span class="c1">// Data Out</span>
-                    <span class="n">bufferSize</span><span class="p">,</span>                             <span class="c1">// Data Out Available</span>
-                    <span class="p">&amp;</span><span class="n">numBytesEncrypted</span>                      <span class="c1">// Data Out Moved</span>
-                <span class="p">)</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">// Step 4: Perform encryption</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numBytesEncrypted</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">cryptStatus</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">keyData</span><span class="p">.</span><span class="n">withUnsafeBytes</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">keyBytes</span><span class="w"> </span><span class="k">in</span>
+<span class="w">        </span><span class="n">inputData</span><span class="p">.</span><span class="n">withUnsafeBytes</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">dataInBytes</span><span class="w"> </span><span class="k">in</span>
+<span class="w">            </span><span class="n">buffer</span><span class="p">.</span><span class="n">withUnsafeMutableBytes</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">bufferBytes</span><span class="w"> </span><span class="k">in</span>
+<span class="w">                </span><span class="n">CCCrypt</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">CCOperation</span><span class="p">(</span><span class="n">kCCEncrypt</span><span class="p">),</span><span class="w">                </span><span class="c1">// Operation</span>
+<span class="w">                    </span><span class="n">CCAlgorithm</span><span class="p">(</span><span class="n">kCCAlgorithm3DES</span><span class="p">),</span><span class="w">          </span><span class="c1">// Algorithm</span>
+<span class="w">                    </span><span class="n">CCOptions</span><span class="p">(</span><span class="n">kCCOptionPKCS7Padding</span><span class="p">),</span><span class="w">       </span><span class="c1">// Options</span>
+<span class="w">                    </span><span class="n">keyBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span><span class="w">                   </span><span class="c1">// Key pointer</span>
+<span class="w">                    </span><span class="n">kCCKeySize3DES</span><span class="p">,</span><span class="w">                         </span><span class="c1">// Key size</span>
+<span class="w">                    </span><span class="kc">nil</span><span class="p">,</span><span class="w">                                    </span><span class="c1">// IV (nil for ECB mode)</span>
+<span class="w">                    </span><span class="n">dataInBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span><span class="w">                </span><span class="c1">// Data In</span>
+<span class="w">                    </span><span class="n">inputData</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span><span class="w">                        </span><span class="c1">// Data In Length</span>
+<span class="w">                    </span><span class="n">bufferBytes</span><span class="p">.</span><span class="n">baseAddress</span><span class="p">,</span><span class="w">                </span><span class="c1">// Data Out</span>
+<span class="w">                    </span><span class="n">bufferSize</span><span class="p">,</span><span class="w">                             </span><span class="c1">// Data Out Available</span>
+<span class="w">                    </span><span class="p">&amp;</span><span class="n">numBytesEncrypted</span><span class="w">                      </span><span class="c1">// Data Out Moved</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 
-    <span class="c1">// Step 5: Check the result and return encrypted data</span>
-    <span class="k">if</span> <span class="n">cryptStatus</span> <span class="p">==</span> <span class="n">kCCSuccess</span> <span class="p">{</span>
-        <span class="n">buffer</span><span class="p">.</span><span class="bp">count</span> <span class="p">=</span> <span class="n">numBytesEncrypted</span>
-        <span class="c1">// Convert encrypted data to base64 string for display</span>
-        <span class="kd">let</span> <span class="nv">encryptedString</span> <span class="p">=</span> <span class="n">buffer</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">encryptedString</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encryption failed with status: </span><span class="si">\(</span><span class="n">cryptStatus</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">nil</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="c1">// Step 5: Check the result and return encrypted data</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">cryptStatus</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">kCCSuccess</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">buffer</span><span class="p">.</span><span class="bp">count</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">numBytesEncrypted</span>
+<span class="w">        </span><span class="c1">// Convert encrypted data to base64 string for display</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nv">encryptedString</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">.</span><span class="n">base64EncodedString</span><span class="p">()</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">encryptedString</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encryption failed with status: </span><span class="si">\(</span><span class="n">cryptStatus</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Usage</span>
-<span class="k">if</span> <span class="kd">let</span> <span class="nv">encryptedText</span> <span class="p">=</span> <span class="n">encryptSampleText</span><span class="p">()</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encrypted Text (Base64): </span><span class="si">\(</span><span class="n">encryptedText</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encryption failed&quot;</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nv">encryptedText</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">encryptSampleText</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encrypted Text (Base64): </span><span class="si">\(</span><span class="n">encryptedText</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;Encryption failed&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>

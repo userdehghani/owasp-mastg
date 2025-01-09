@@ -21089,7 +21089,7 @@
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span> <span class="nn">mitmproxy</span> <span class="kn">import</span> <span class="n">http</span>
+<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mitmproxy</span><span class="w"> </span><span class="kn">import</span> <span class="n">http</span>
 
 <span class="c1"># This data would come from another file and should be defined after identifying the data that is considered sensitive for this application.</span>
 <span class="c1"># For example by using the Google Play Store Data Safety section.</span>
@@ -21104,10 +21104,10 @@
 
 <span class="n">SENSITIVE_STRINGS</span> <span class="o">=</span> <span class="n">SENSITIVE_DATA</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">contains_sensitive_data</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">contains_sensitive_data</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">sensitive</span> <span class="ow">in</span> <span class="n">string</span> <span class="k">for</span> <span class="n">sensitive</span> <span class="ow">in</span> <span class="n">SENSITIVE_STRINGS</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">):</span>
     <span class="n">url</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">pretty_url</span>
     <span class="n">request_headers</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
     <span class="n">request_body</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">text</span>
@@ -21126,10 +21126,10 @@
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;REQUEST URL: </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request Headers: </span><span class="si">{</span><span class="n">request_headers</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request Body: </span><span class="si">{</span><span class="n">request_body</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">request</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
     <span class="n">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">response</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">response</span><span class="p">(</span><span class="n">flow</span><span class="p">:</span> <span class="n">http</span><span class="o">.</span><span class="n">HTTPFlow</span><span class="p">):</span>
     <span class="n">process_flow</span><span class="p">(</span><span class="n">flow</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">mitmdump</span> <span class="o">-</span><span class="n">s</span> <span class="n">mitm_sensitive_logger</span><span class="o">.</span><span class="n">py</span>

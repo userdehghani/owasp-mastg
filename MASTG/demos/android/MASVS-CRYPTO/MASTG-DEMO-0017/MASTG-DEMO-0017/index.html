@@ -20748,17 +20748,17 @@
 <span class="normal">27</span>
 <span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">owasp</span><span class="o">.</span><span class="n">mastestapp</span>
 
-<span class="kn">import</span> <span class="nn">android.content.Context</span>
-<span class="kn">import</span> <span class="nn">javax.crypto.Cipher</span>
-<span class="kn">import</span> <span class="nn">javax.crypto.SecretKey</span>
-<span class="kn">import</span> <span class="nn">javax.crypto.spec.SecretKeySpec</span>
-<span class="kn">import</span> <span class="nn">android.util.Base64</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">android.content.Context</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.Cipher</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.SecretKey</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.spec.SecretKeySpec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">android.util.Base64</span>
 
-<span class="k">class</span> <span class="nc">MastgTest</span><span class="p">(</span><span class="n">private</span> <span class="n">val</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MastgTest</span><span class="p">(</span><span class="n">private</span> <span class="n">val</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
 
     <span class="n">fun</span> <span class="n">mastgTest</span><span class="p">():</span> <span class="n">String</span> <span class="p">{</span>
 
-        <span class="o">//</span> <span class="n">Bad</span><span class="p">:</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">a</span> <span class="n">hardcoded</span> <span class="n">key</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">bytes</span><span class="p">)</span> <span class="k">for</span> <span class="n">encryption</span>
+        <span class="o">//</span> <span class="n">Bad</span><span class="p">:</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">a</span> <span class="n">hardcoded</span> <span class="n">key</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">bytes</span><span class="p">)</span> <span class="k">for</span> <span class="n">encryption</span>
         <span class="n">val</span> <span class="n">keyBytes</span> <span class="o">=</span> <span class="n">byteArrayOf</span><span class="p">(</span><span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">)</span> <span class="o">//</span> <span class="n">Example</span> <span class="n">key</span> <span class="nb">bytes</span>
         <span class="n">val</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">Cipher</span><span class="o">.</span><span class="n">getInstance</span><span class="p">(</span><span class="s2">&quot;AES/GCM/NoPadding&quot;</span><span class="p">)</span>
         <span class="n">val</span> <span class="n">secretKey</span> <span class="o">=</span> <span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span> <span class="s2">&quot;AES&quot;</span><span class="p">)</span>

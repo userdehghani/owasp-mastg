@@ -20709,17 +20709,17 @@
 <p>If you have the source code, search for the <a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622997-applicationdidenterbackground"><code>applicationDidEnterBackground</code></a> method to determine whether the application sanitizes the screen before being backgrounded.</p>
 <p>The following is a sample implementation using a default background image (<code>overlayImage.png</code>) whenever the application is backgrounded, overriding the current view:</p>
 <p>Swift:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">private</span> <span class="kd">var</span> <span class="nv">backgroundImage</span><span class="p">:</span> <span class="bp">UIImageView</span><span class="p">?</span>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">var</span><span class="w"> </span><span class="nv">backgroundImage</span><span class="p">:</span><span class="w"> </span><span class="bp">UIImageView</span><span class="p">?</span>
 
-<span class="kd">func</span> <span class="nf">applicationDidEnterBackground</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nv">myBanner</span> <span class="p">=</span> <span class="bp">UIImageView</span><span class="p">(</span><span class="n">image</span><span class="p">:</span> <span class="p">#</span><span class="n">imageLiteral</span><span class="p">(</span><span class="n">resourceName</span><span class="p">:</span> <span class="s">&quot;overlayImage&quot;</span><span class="p">))</span>
-    <span class="n">myBanner</span><span class="p">.</span><span class="n">frame</span> <span class="p">=</span> <span class="bp">UIScreen</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">bounds</span>
-    <span class="n">backgroundImage</span> <span class="p">=</span> <span class="n">myBanner</span>
-    <span class="n">window</span><span class="p">?.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">myBanner</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">applicationDidEnterBackground</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">application</span><span class="p">:</span><span class="w"> </span><span class="bp">UIApplication</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nv">myBanner</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">UIImageView</span><span class="p">(</span><span class="n">image</span><span class="p">:</span><span class="w"> </span><span class="p">#</span><span class="n">imageLiteral</span><span class="p">(</span><span class="n">resourceName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;overlayImage&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="n">myBanner</span><span class="p">.</span><span class="n">frame</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">UIScreen</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">bounds</span>
+<span class="w">    </span><span class="n">backgroundImage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">myBanner</span>
+<span class="w">    </span><span class="n">window</span><span class="p">?.</span><span class="n">addSubview</span><span class="p">(</span><span class="n">myBanner</span><span class="p">)</span>
 <span class="p">}</span>
 
-<span class="kd">func</span> <span class="nf">applicationWillEnterForeground</span><span class="p">(</span><span class="kc">_</span> <span class="n">application</span><span class="p">:</span> <span class="bp">UIApplication</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">backgroundImage</span><span class="p">?.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
+<span class="kd">func</span><span class="w"> </span><span class="nf">applicationWillEnterForeground</span><span class="p">(</span><span class="kc">_</span><span class="w"> </span><span class="n">application</span><span class="p">:</span><span class="w"> </span><span class="bp">UIApplication</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">backgroundImage</span><span class="p">?.</span><span class="n">removeFromSuperview</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>Objective-C:</p>

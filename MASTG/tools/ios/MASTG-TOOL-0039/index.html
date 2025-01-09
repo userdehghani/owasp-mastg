@@ -20723,7 +20723,7 @@ PID<span class="w">  </span>Name
 <p>In order to extend the scripting experience, Frida offers bindings to programming languages such as Python, C, NodeJS, and Swift.</p>
 <p>Taking Python as an example, the first thing to note is that no further installation steps are required. Start your Python script with <code>import frida</code> and you're ready to go. See the following script that simply runs the previous JavaScript snippet:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># frida_python.py</span>
-<span class="kn">import</span> <span class="nn">frida</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">frida</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">get_usb_device</span><span class="p">()</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s1">&#39;com.android.chrome&#39;</span><span class="p">)</span>
 
@@ -20744,7 +20744,7 @@ PID<span class="w">  </span>Name
 </code></pre></div>
 <p>In this case, running the Python script (<code>python3 frida_python.py</code>) has the same result as the previous example: it will print all methods of the <code>android.view.View</code> class to the terminal. However, you might want to work with that data from Python. Using <code>send</code> instead of <code>console.log</code> will send data in JSON format from JavaScript to Python. Please read the comments in the example below:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># python3 frida_python_send.py</span>
-<span class="kn">import</span> <span class="nn">frida</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">frida</span>
 
 <span class="n">session</span> <span class="o">=</span> <span class="n">frida</span><span class="o">.</span><span class="n">get_usb_device</span><span class="p">()</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="s1">&#39;com.android.chrome&#39;</span><span class="p">)</span>
 
@@ -20764,7 +20764,7 @@ PID<span class="w">  </span>Name
 <span class="n">script</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create_script</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 
 <span class="c1"># 2. this is a callback function, only method names containing &quot;Text&quot; will be appended to the list</span>
-<span class="k">def</span> <span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="k">if</span> <span class="s2">&quot;Text&quot;</span> <span class="ow">in</span> <span class="n">message</span><span class="p">[</span><span class="s1">&#39;payload&#39;</span><span class="p">]:</span>
         <span class="n">android_view_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="s1">&#39;payload&#39;</span><span class="p">])</span>
 
