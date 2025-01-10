@@ -6787,6 +6787,14 @@
     MASTG-TEST-0016: Testing Random Number Generation
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--deprecated" title="This page is deprecated.">
+    </span>
+  
+
+  
 
       </a>
     </li>
@@ -9397,6 +9405,14 @@
     MASTG-TEST-0088: Testing Jailbreak Detection
   </span>
   
+    
+  
+  
+    <span class="md-status md-status--deprecated" title="This page is deprecated.">
+    </span>
+  
+
+  
 
       </a>
     </li>
@@ -11157,6 +11173,10 @@
       
         
       
+        
+      
+        
+      
     
     
       
@@ -11225,6 +11245,52 @@
   
   <span class="md-ellipsis">
     MASTG-TEST-0220: Usage of Outdated Code Signature Format
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests-beta/ios/MASVS-RESILIENCE/MASTG-TEST-0240/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.03 8.28a.75.75 0 0 0-1.06-1.06l-5.22 5.22-2.22-2.22a.75.75 0 1 0-1.06 1.06l2.75 2.75a.75.75 0 0 0 1.06 0z"/><path d="M0 10.5C0 4.701 4.701 0 10.5 0S21 4.701 21 10.5c0 2.63-.967 5.033-2.564 6.875l4.344 4.345a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-4.345-4.344A10.46 10.46 0 0 1 10.5 21C4.701 21 0 16.299 0 10.5m10.5-9a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TEST-0240: Jailbreak Detection in Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tests-beta/ios/MASVS-RESILIENCE/MASTG-TEST-0241/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.03 8.28a.75.75 0 0 0-1.06-1.06l-5.22 5.22-2.22-2.22a.75.75 0 1 0-1.06 1.06l2.75 2.75a.75.75 0 0 0 1.06 0z"/><path d="M0 10.5C0 4.701 4.701 0 10.5 0S21 4.701 21 10.5c0 2.63-.967 5.033-2.564 6.875l4.344 4.345a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215l-4.345-4.344A10.46 10.46 0 0 1 10.5 21C4.701 21 0 16.299 0 10.5m10.5-9a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TEST-0241: Runtime Use of Jailbreak Detection Techniques
   </span>
   
 
@@ -20967,6 +21033,7 @@ provider: AndroidKeyStore 1.0(Android KeyStore security provider)
 <p>Cryptography requires secure pseudo random number generation (PRNG). Standard Java classes as <code>java.util.Random</code> do not provide sufficient randomness and in fact may make it possible for an attacker to guess the next value that will be generated, and use this guess to impersonate another user or access sensitive information.</p>
 <p>In general, <code>SecureRandom</code> should be used. However, if the Android versions below Android 4.4 (API level 19) are supported, additional care needs to be taken in order to work around the bug in Android 4.1-4.3 (API level 16-18) versions that <a href="https://android-developers.googleblog.com/2013/08/some-securerandom-thoughts.html" title="Some SecureRandom Thoughts">failed to properly initialize the PRNG</a>.</p>
 <p>Most developers should instantiate <code>SecureRandom</code> via the default constructor without any arguments. Other constructors are for more advanced uses and, if used incorrectly, can lead to decreased randomness and security. The PRNG provider backing <code>SecureRandom</code> uses the <code>SHA1PRNG</code> from <code>AndroidOpenSSL</code> (Conscrypt) provider.</p>
+<p>Check the <a href="https://developer.android.com/privacy-and-security/risks/weak-prng">Android Documentation</a> for more details.</p>
 
 
 
