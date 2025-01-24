@@ -8958,6 +8958,75 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#testing-javascript-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing JavaScript Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-mixed-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for Mixed Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-webview-uri-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for WebView URI Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumerating-webview-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerating WebView Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-if-javascript-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking if JavaScript is Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-mixed-content_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for Mixed Content
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -20676,6 +20745,75 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#testing-javascript-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing JavaScript Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-mixed-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for Mixed Content
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-webview-uri-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for WebView URI Manipulation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dynamic Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enumerating-webview-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enumerating WebView Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-if-javascript-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking if JavaScript is Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-for-mixed-content_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing for Mixed Content
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -20834,10 +20972,10 @@
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>For the static analysis we will focus mostly on the following points having <code>UIWebView</code> and <code>WKWebView</code> under scope.</p>
 <ul>
-<li>Identifying WebView usage</li>
-<li>Testing JavaScript configuration</li>
-<li>Testing for mixed content</li>
-<li>Testing for WebView URI manipulation</li>
+<li><a href="#identifying-webview-usage">Identifying WebView usage</a></li>
+<li><a href="#testing-javascript-configuration">Testing JavaScript configuration</a></li>
+<li><a href="#testing-for-mixed-content">Testing for Mixed Content</a></li>
+<li><a href="#testing-for-webview-uri-manipulation">Testing for WebView URI manipulation</a></li>
 </ul>
 <h3 id="identifying-webview-usage">Identifying WebView Usage<a class="headerlink" href="#identifying-webview-usage" title="Permanent link">&para;</a></h3>
 <p>Look out for usages of the above mentioned WebView classes by searching in Xcode.</p>
@@ -20867,6 +21005,142 @@
 
 ---&gt;<span class="w"> </span>@nonobjc<span class="w"> </span>__C.WKWebView.init<span class="o">(</span>frame:<span class="w"> </span>__C_Synthesized.CGRect,
 <span class="w">                                </span>configuration:<span class="w"> </span>__C.WKWebViewConfiguration<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>__C.WKWebView
+</code></pre></div>
+<h3 id="testing-javascript-configuration">Testing JavaScript Configuration<a class="headerlink" href="#testing-javascript-configuration" title="Permanent link">&para;</a></h3>
+<p>First of all, remember that JavaScript cannot be disabled for <code>UIWebVIews</code>.</p>
+<p>For <code>WKWebView</code>s, as a best practice, JavaScript should be disabled unless it is explicitly required. To verify that JavaScript was properly disabled search the project for usages of <code>WKPreferences</code> and ensure that the <a href="https://developer.apple.com/documentation/webkit/wkpreferences/1536203-javascriptenabled" title="WKPreferences javaScriptEnabled"><code>javaScriptEnabled</code></a> property is set to <code>false</code>:</p>
+<div class="highlight"><pre><span></span><code>let webPreferences = WKPreferences()
+webPreferences.javaScriptEnabled = false
+</code></pre></div>
+<p>If only having the compiled binary you can search for this in it:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-zz<span class="w"> </span>./WheresMyBrowser<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;javascriptenabled&quot;</span>
+<span class="m">391</span><span class="w"> </span>0x0002f2c7<span class="w"> </span>0x10002f2c7<span class="w">  </span><span class="m">17</span><span class="w">  </span><span class="m">18</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>javaScriptEnabled
+<span class="m">392</span><span class="w"> </span>0x0002f2d9<span class="w"> </span>0x10002f2d9<span class="w">  </span><span class="m">21</span><span class="w">  </span><span class="m">22</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>setJavaScriptEnabled:
+</code></pre></div>
+<p>If user scripts were defined, they will continue running as the <code>javaScriptEnabled</code> property won't affect them. See <a href="https://developer.apple.com/documentation/webkit/wkusercontentcontroller" title="WKUserContentController">WKUserContentController</a> and <a href="https://developer.apple.com/documentation/webkit/wkuserscript" title="WKUserScript">WKUserScript</a> for more information on injecting user scripts to WKWebViews.</p>
+<h3 id="testing-for-mixed-content">Testing for Mixed Content<a class="headerlink" href="#testing-for-mixed-content" title="Permanent link">&para;</a></h3>
+<p>In contrast to <code>UIWebView</code>s, when using <code>WKWebView</code>s it is possible to detect <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=en" title="Preventing Mixed Content">mixed content</a> (HTTP content loaded from a HTTPS page). By using the method <a href="https://developer.apple.com/documentation/webkit/wkwebview/1415002-hasonlysecurecontent" title="WKWebView hasOnlySecureContent"><code>hasOnlySecureContent</code></a> it can be verified whether all resources on the page have been loaded through securely encrypted connections. This example from [#thiel2] (see page 159 and 160) uses this to ensure that only content loaded via HTTPS is shown to the user, otherwise an alert is displayed telling the user that mixed content was detected.</p>
+<p>In the compiled binary:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-zz<span class="w"> </span>./WheresMyBrowser<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;hasonlysecurecontent&quot;</span>
+
+<span class="c1"># nothing found</span>
+</code></pre></div>
+<p>In this case, the app does not make use of this.</p>
+<p>In addition, if you have the original source code or the IPA, you can inspect the embedded HTML files and verify that they do not include mixed content. Search for <code>http://</code> in the source and inside tag attributes, but remember that this might give false positives as, for example, finding an anchor tag <code>&lt;a&gt;</code> that includes a <code>http://</code> inside its <code>href</code> attribute does not always present a mixed content issue. Learn more about mixed content in the <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content" title="Mixed Content">MDN Web Docs</a>.</p>
+<h3 id="testing-for-webview-uri-manipulation">Testing for WebView URI Manipulation<a class="headerlink" href="#testing-for-webview-uri-manipulation" title="Permanent link">&para;</a></h3>
+<p>Make sure that the WebView's URI cannot be manipulated by the user in order to load other types of resources than necessary for the functioning of the WebView. This can be specifically dangerous when the WebView's content is loaded from the local file system, allowing the user to navigate to other resources within the application.</p>
+<h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
+<p>For the dynamic analysis we will address the same points from the static analysis.</p>
+<ul>
+<li><a href="#enumerating-webview-instances">Enumerating WebView instances</a></li>
+<li><a href="#checking-if-javascript-is-enabled">Checking if JavaScript is enabled</a></li>
+<li><a href="#testing-for-mixed-content-1">Testing for Mixed Content</a></li>
+</ul>
+<p>It is possible to identify WebViews and obtain all their properties on runtime by performing dynamic instrumentation. This is very useful when you don't have the original source code.</p>
+<p>For the following examples, we will keep using the <a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/" title="Where\'s My Browser? GitHub Repository">"Where's My Browser?"</a> app and Frida REPL.</p>
+<h3 id="enumerating-webview-instances">Enumerating WebView Instances<a class="headerlink" href="#enumerating-webview-instances" title="Permanent link">&para;</a></h3>
+<p>Once you've identified a WebView in the app, you may inspect the heap in order to find instances of one or several of the WebViews that we have seen above.</p>
+<p>For example, if you use Frida you can do so by inspecting the heap via "ObjC.choose()"</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ObjC</span><span class="p">.</span><span class="nx">choose</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">[</span><span class="s1">&#39;UIWebView&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onMatch</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">ui</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onMatch: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">ui</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;URL: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">request</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">onComplete</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;done for UIWebView!&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">ObjC</span><span class="p">.</span><span class="nx">choose</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">[</span><span class="s1">&#39;WKWebView&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onMatch</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">wk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onMatch: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;URL: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">.</span><span class="nx">URL</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">onComplete</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;done for WKWebView!&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">ObjC</span><span class="p">.</span><span class="nx">choose</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">[</span><span class="s1">&#39;SFSafariViewController&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onMatch</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">sf</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onMatch: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">sf</span><span class="p">);</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nx">onComplete</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;done for SFSafariViewController!&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>For the <code>UIWebView</code> and <code>WKWebView</code> WebViews we also print the associated URL for the sake of completion.</p>
+<p>In order to ensure that you will be able to find the instances of the WebViews in the heap, be sure to first navigate to the WebView you've found. Once there, run the code above, e.g. by copying into the Frida REPL:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="w"> </span><span class="nx">frida</span><span class="w"> </span><span class="o">-</span><span class="nx">U</span><span class="w"> </span><span class="nx">com</span><span class="p">.</span><span class="nx">authenticationfailure</span><span class="p">.</span><span class="nx">WheresMyBrowser</span>
+
+<span class="err">#</span><span class="w"> </span><span class="nx">copy</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">wait</span><span class="w"> </span><span class="p">...</span>
+
+<span class="nx">onMatch</span><span class="o">:</span><span class="w">  </span><span class="o">&lt;</span><span class="nx">UIWebView</span><span class="o">:</span><span class="w"> </span><span class="mh">0x14fd25e50</span><span class="p">;</span><span class="w"> </span><span class="nx">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">0</span><span class="w"> </span><span class="mf">126</span><span class="p">;</span><span class="w"> </span><span class="mf">320</span><span class="w"> </span><span class="mf">393</span><span class="p">);</span>
+<span class="w">                </span><span class="nx">autoresize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">RM</span><span class="o">+</span><span class="nx">BM</span><span class="p">;</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">CALayer</span><span class="o">:</span><span class="w"> </span><span class="mh">0x1c422d100</span><span class="o">&gt;&gt;</span>
+<span class="nx">URL</span><span class="o">:</span><span class="w">  </span><span class="o">&lt;</span><span class="nx">NSMutableURLRequest</span><span class="o">:</span><span class="w"> </span><span class="mh">0x1c000ef00</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">URL</span><span class="o">:</span><span class="w"> </span><span class="nx">file</span><span class="o">:</span><span class="c1">///var/mobile/Containers/Data/Application/A654D169-1DB7-429C-9DB9-A871389A8BAA/</span>
+<span class="w">          </span><span class="nx">Library</span><span class="o">/</span><span class="nx">UIWebView</span><span class="o">/</span><span class="nx">scenario1</span><span class="p">.</span><span class="nx">html</span><span class="p">,</span><span class="w"> </span><span class="nx">Method</span><span class="w"> </span><span class="nx">GET</span><span class="p">,</span><span class="w"> </span><span class="nx">Headers</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Accept</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="p">(</span>
+<span class="w">        </span><span class="s2">&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="s2">&quot;Upgrade-Insecure-Requests&quot;</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="p">(</span>
+<span class="w">        </span><span class="mf">1</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="s2">&quot;User-Agent&quot;</span><span class="w"> </span><span class="o">=</span><span class="w">     </span><span class="p">(</span>
+<span class="w">        </span><span class="s2">&quot;Mozilla/5.0 (iPhone; CPU iPhone ... AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/...&quot;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Now we quit with <code>q</code> and open another WebView (<code>WKWebView</code> in this case). It also gets detected if we repeat the previous steps:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">$</span><span class="w"> </span><span class="nx">frida</span><span class="w"> </span><span class="o">-</span><span class="nx">U</span><span class="w"> </span><span class="nx">com</span><span class="p">.</span><span class="nx">authenticationfailure</span><span class="p">.</span><span class="nx">WheresMyBrowser</span>
+
+<span class="err">#</span><span class="w"> </span><span class="nx">copy</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">wait</span><span class="w"> </span><span class="p">...</span>
+
+<span class="nx">onMatch</span><span class="o">:</span><span class="w">  </span><span class="o">&lt;</span><span class="nx">WKWebView</span><span class="o">:</span><span class="w"> </span><span class="mh">0x1508b1200</span><span class="p">;</span><span class="w"> </span><span class="nx">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">0</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="mf">320</span><span class="w"> </span><span class="mf">393</span><span class="p">);</span><span class="w"> </span><span class="nx">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">CALayer</span><span class="o">:</span><span class="w"> </span><span class="mh">0x1c4238f20</span><span class="o">&gt;&gt;</span>
+<span class="nx">URL</span><span class="o">:</span><span class="w">  </span><span class="nx">file</span><span class="o">:</span><span class="c1">///var/mobile/Containers/Data/Application/A654D169-1DB7-429C-9DB9-A871389A8BAA/</span>
+<span class="w">            </span><span class="nx">Library</span><span class="o">/</span><span class="nx">WKWebView</span><span class="o">/</span><span class="nx">scenario1</span><span class="p">.</span><span class="nx">html</span>
+</code></pre></div>
+<p>We will extend this example in the following sections in order to get more information from the WebViews. We recommend to store this code to a file, e.g. webviews_inspector.js and run it like this:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">frida</span><span class="w"> </span><span class="o">-</span><span class="nx">U</span><span class="w"> </span><span class="nx">com</span><span class="p">.</span><span class="nx">authenticationfailure</span><span class="p">.</span><span class="nx">WheresMyBrowser</span><span class="w"> </span><span class="o">-</span><span class="nx">l</span><span class="w"> </span><span class="nx">webviews_inspector</span><span class="p">.</span><span class="nx">js</span>
+</code></pre></div>
+<h3 id="checking-if-javascript-is-enabled">Checking if JavaScript is Enabled<a class="headerlink" href="#checking-if-javascript-is-enabled" title="Permanent link">&para;</a></h3>
+<p>Remember that if a <code>UIWebView</code> is being used, JavaScript is enabled by default and there's no possibility to disable it.</p>
+<p>For <code>WKWebView</code>, you should verify if JavaScript is enabled. Use <a href="https://developer.apple.com/documentation/webkit/wkpreferences/1536203-javascriptenabled" title="WKPreferences javaScriptEnabled"><code>javaScriptEnabled</code></a> from <code>WKPreferences</code> for this.</p>
+<p>Extend the previous script with the following line:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ObjC</span><span class="p">.</span><span class="nx">choose</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">[</span><span class="s1">&#39;WKWebView&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onMatch</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">wk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onMatch: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;javaScriptEnabled:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">.</span><span class="nx">configuration</span><span class="p">().</span><span class="nx">preferences</span><span class="p">().</span><span class="nx">javaScriptEnabled</span><span class="p">());</span>
+<span class="c1">//...</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The output shows now that, in fact, JavaScript is enabled:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida<span class="w"> </span>-U<span class="w"> </span>com.authenticationfailure.WheresMyBrowser<span class="w"> </span>-l<span class="w"> </span>webviews_inspector.js
+
+onMatch:<span class="w">  </span>&lt;WKWebView:<span class="w"> </span>0x1508b1200<span class="p">;</span><span class="w"> </span><span class="nv">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="m">320</span><span class="w"> </span><span class="m">393</span><span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="nv">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;CALayer:<span class="w"> </span>0x1c4238f20&gt;&gt;
+
+javaScriptEnabled:<span class="w">  </span><span class="nb">true</span>
+</code></pre></div>
+<h3 id="testing-for-mixed-content_1">Testing for Mixed Content<a class="headerlink" href="#testing-for-mixed-content_1" title="Permanent link">&para;</a></h3>
+<p>The <code>UIWebView</code> class does not provide a method for verifying that only secure content is allowed. However, <a href="https://developer.apple.com/documentation/safari-technology-preview-release-notes/stp-release-7">starting on iOS 10</a>, the <a href="https://w3c.github.io/webappsec-upgrade-insecure-requests/#upgrade-insecure-requests"><code>Upgrade-Insecure-Requests</code></a> CSP (Content Security Policy) directive was introduced to WebKit, the browser engine powering the iOS WebViews. This directive can be used to instruct the browser to upgrade insecure requests to secure requests. This is a good practice to prevent mixed content issues.</p>
+<p>For <code>WKWebView</code>'s, you may call the method <a href="https://developer.apple.com/documentation/webkit/wkwebview/1415002-hasonlysecurecontent" title="WKWebView hasOnlySecureContent"><code>hasOnlySecureContent</code></a> for each of the <code>WKWebView</code>s found in the heap. Remember to do so once the WebView has loaded.</p>
+<p>Extend the previous script with the following line:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ObjC</span><span class="p">.</span><span class="nx">choose</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">[</span><span class="s1">&#39;WKWebView&#39;</span><span class="p">],</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onMatch</span><span class="o">:</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">wk</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;onMatch: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;hasOnlySecureContent: &#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">wk</span><span class="p">.</span><span class="nx">hasOnlySecureContent</span><span class="p">().</span><span class="nx">toString</span><span class="p">());</span>
+<span class="w">    </span><span class="c1">//...</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">});</span>
+</code></pre></div>
+<p>The output shows that some of the resources on the page have been loaded through insecure connections:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida<span class="w"> </span>-U<span class="w"> </span>com.authenticationfailure.WheresMyBrowser<span class="w"> </span>-l<span class="w"> </span>webviews_inspector.js
+
+onMatch:<span class="w">  </span>&lt;WKWebView:<span class="w"> </span>0x1508b1200<span class="p">;</span><span class="w"> </span><span class="nv">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="m">320</span><span class="w"> </span><span class="m">393</span><span class="o">)</span><span class="p">;</span><span class="w"> </span><span class="nv">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;CALayer:<span class="w"> </span>0x1c4238f20&gt;&gt;
+
+hasOnlySecureContent:<span class="w">  </span><span class="nb">false</span>
 </code></pre></div>
 
 

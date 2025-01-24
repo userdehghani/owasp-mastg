@@ -8788,46 +8788,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#review-application-source-code" class="md-nav__link">
+  <a href="#purpose-strings-in-the-infoplist-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Review application source code
+      Purpose Strings in the Info.plist File
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-infoplist" class="md-nav__link">
+  <a href="#embedded-provisioning-profile-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Info.plist
+      Embedded Provisioning Profile File
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-embedded-provisioning-profile-file" class="md-nav__link">
+  <a href="#entitlements-embedded-in-the-compiled-app-binary" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Embedded Provisioning Profile File
+      Entitlements Embedded in the Compiled App Binary
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-entitlements-embedded-in-the-compiled-app-binary" class="md-nav__link">
+  <a href="#usage-of-permissions-in-source-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Entitlements Embedded in the Compiled App Binary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Review Entitlements Embedded in the Compiled App Binary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code-inspection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source Code Inspection
+      Usage of Permissions in Source Code
     </span>
   </a>
   
@@ -8837,18 +8827,13 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -20671,46 +20656,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#review-application-source-code" class="md-nav__link">
+  <a href="#purpose-strings-in-the-infoplist-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Review application source code
+      Purpose Strings in the Info.plist File
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-infoplist" class="md-nav__link">
+  <a href="#embedded-provisioning-profile-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Info.plist
+      Embedded Provisioning Profile File
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-embedded-provisioning-profile-file" class="md-nav__link">
+  <a href="#entitlements-embedded-in-the-compiled-app-binary" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Embedded Provisioning Profile File
+      Entitlements Embedded in the Compiled App Binary
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#review-entitlements-embedded-in-the-compiled-app-binary" class="md-nav__link">
+  <a href="#usage-of-permissions-in-source-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Review Entitlements Embedded in the Compiled App Binary
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Review Entitlements Embedded in the Compiled App Binary">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#source-code-inspection" class="md-nav__link">
-    <span class="md-ellipsis">
-      Source Code Inspection
+      Usage of Permissions in Source Code
     </span>
   </a>
   
@@ -20720,18 +20695,13 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#dynamic-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       Dynamic Analysis
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -20892,9 +20862,9 @@
 <li>Code Signing Entitlements File</li>
 <li>Embedded Provisioning Profile File</li>
 <li>Entitlements Embedded in the Compiled App Binary</li>
-<li>Source Code Inspection</li>
+<li>Usage of Permissions in Source Code</li>
 </ul>
-<h3 id="review-application-source-code">Review application source code<a class="headerlink" href="#review-application-source-code" title="Permanent link">&para;</a></h3>
+<h3 id="purpose-strings-in-the-infoplist-file">Purpose Strings in the Info.plist File<a class="headerlink" href="#purpose-strings-in-the-infoplist-file" title="Permanent link">&para;</a></h3>
 <p>If having the original source code, you can verify the permissions included in the <code>Info.plist</code> file:</p>
 <ul>
 <li>Open the project with Xcode.</li>
@@ -20902,7 +20872,6 @@
 </ul>
 <p>You may switch the view to display the raw values by right-clicking and selecting "Show Raw Keys/Values" (this way for example <code>"Privacy - Location When In Use Usage Description"</code> will turn into <code>NSLocationWhenInUseUsageDescription</code>).</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06h/purpose_strings_xcode.png" width="100%" /></p>
-<h3 id="review-infoplist">Review Info.plist<a class="headerlink" href="#review-infoplist" title="Permanent link">&para;</a></h3>
 <p>If only having the IPA:</p>
 <ul>
 <li>Unzip the IPA.</li>
@@ -20926,15 +20895,15 @@
 </code></pre></div>
 <p>It should be suspicious that a regular solitaire game requests this kind of resource access as it probably does not have any need for <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW24" title="NSCameraUsageDescription">accessing the camera</a> nor a <a href="https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW76" title="NSHealthClinicalHealthRecordsShareUsageDescription">user's health-records</a>.</p>
 <p>Apart from simply checking if the permissions make sense, further analysis steps might be derived from analyzing purpose strings e.g. if they are related to storage sensitive data. For example, <code>NSPhotoLibraryUsageDescription</code> can be considered as a storage permission giving access to files that are outside of the app's sandbox and might also be accessible by other apps. In this case, it should be tested that no sensitive data is being stored there (photos in this case). For other purpose strings like <code>NSLocationAlwaysUsageDescription</code>, it must be also considered if the app is storing this data securely. Refer to the "Testing Data Storage" chapter for more information and best practices on securely storing sensitive data.</p>
-<h3 id="review-embedded-provisioning-profile-file">Review Embedded Provisioning Profile File<a class="headerlink" href="#review-embedded-provisioning-profile-file" title="Permanent link">&para;</a></h3>
+<h3 id="embedded-provisioning-profile-file">Embedded Provisioning Profile File<a class="headerlink" href="#embedded-provisioning-profile-file" title="Permanent link">&para;</a></h3>
 <p>When you do not have the original source code, you should analyze the IPA and search inside for the <em>embedded provisioning profile</em> that is usually located in the root app bundle folder (<code>Payload/&lt;appname&gt;.app/</code>) under the name <code>embedded.mobileprovision</code>.</p>
 <p>This file is not a <code>.plist</code>, it is encoded using <a href="https://en.wikipedia.org/wiki/Cryptographic_Message_Syntax" title="Cryptographic Message Syntax">Cryptographic Message Syntax</a>. On macOS you can <a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-PROFILESENTITLEMENTS" title="Inspecting a profile\'s entitlements">inspect an embedded provisioning profile's entitlements</a> using the following command:</p>
 <div class="highlight"><pre><span></span><code>security<span class="w"> </span>cms<span class="w"> </span>-D<span class="w"> </span>-i<span class="w"> </span>embedded.mobileprovision
 </code></pre></div>
 <p>and then search for the Entitlements key region (<code>&lt;key&gt;Entitlements&lt;/key&gt;</code>).</p>
-<h3 id="review-entitlements-embedded-in-the-compiled-app-binary">Review Entitlements Embedded in the Compiled App Binary<a class="headerlink" href="#review-entitlements-embedded-in-the-compiled-app-binary" title="Permanent link">&para;</a></h3>
+<h3 id="entitlements-embedded-in-the-compiled-app-binary">Entitlements Embedded in the Compiled App Binary<a class="headerlink" href="#entitlements-embedded-in-the-compiled-app-binary" title="Permanent link">&para;</a></h3>
 <p>If you only have the app's IPA or simply the installed app on a jailbroken device, you normally won't be able to find <code>.entitlements</code> files. This could also be the case for the <code>embedded.mobileprovision</code> file. Still, you should be able to extract the entitlements property lists from the app binary yourself (see <em><a href="../../../../techniques/ios/MASTG-TECH-0111/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Extracting Entitlements from MachO Binaries</a></em>).</p>
-<h4 id="source-code-inspection">Source Code Inspection<a class="headerlink" href="#source-code-inspection" title="Permanent link">&para;</a></h4>
+<h3 id="usage-of-permissions-in-source-code">Usage of Permissions in Source Code<a class="headerlink" href="#usage-of-permissions-in-source-code" title="Permanent link">&para;</a></h3>
 <p>After having checked the <code>&lt;appname&gt;.entitlements</code> file and the <code>Info.plist</code> file, it is time to verify how the requested permissions and assigned capabilities are put to use. For this, a source code review should be enough. However, if you don't have the original source code, verifying the use of permissions might be specially challenging as you might need to reverse engineer the app, refer to the "Dynamic Analysis" for more details on how to proceed.</p>
 <p>When doing a source code review, pay attention to:</p>
 <ul>
@@ -20959,7 +20928,7 @@
 </li>
 </ul>
 <p>Go through the application searching for usages of these APIs and check what happens to sensitive data that might be obtained from them. For example, it might be stored or transmitted over the network, if this is the case, proper data protection and transport security should be additionally verified.</p>
-<h3 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h3>
+<h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>With help of the static analysis you should already have a list of the included permissions and app capabilities in use. However, as mentioned in "Source Code Inspection", spotting the sensitive data and APIs related to those permissions and app capabilities might be a challenging task when you don't have the original source code. Dynamic analysis can help here getting inputs to iterate onto the static analysis.</p>
 <p>Following an approach like the one presented below should help you spotting the mentioned sensitive data and APIs:</p>
 <ol>
