@@ -8949,9 +8949,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#testing-how-webviews-are-loaded" class="md-nav__link">
+  <a href="#testing-how-webviews-load-content" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing How WebViews are Loaded
+      Testing How WebViews Load Content
     </span>
   </a>
   
@@ -8991,9 +8991,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checking-how-webviews-are-loaded" class="md-nav__link">
+  <a href="#testing-how-webviews-load-content_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Checking How WebViews are Loaded
+      Testing How WebViews Load Content
     </span>
   </a>
   
@@ -20671,9 +20671,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#testing-how-webviews-are-loaded" class="md-nav__link">
+  <a href="#testing-how-webviews-load-content" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing How WebViews are Loaded
+      Testing How WebViews Load Content
     </span>
   </a>
   
@@ -20713,9 +20713,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checking-how-webviews-are-loaded" class="md-nav__link">
+  <a href="#testing-how-webviews-load-content_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Checking How WebViews are Loaded
+      Testing How WebViews Load Content
     </span>
   </a>
   
@@ -20887,13 +20887,13 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Testing how WebViews are loaded</li>
+<li>Testing How WebViews Load Content</li>
 <li>Testing WebView file access</li>
 <li>Checking telephone number detection</li>
 </ul>
-<h3 id="testing-how-webviews-are-loaded">Testing How WebViews are Loaded<a class="headerlink" href="#testing-how-webviews-are-loaded" title="Permanent link">&para;</a></h3>
+<h3 id="testing-how-webviews-load-content">Testing How WebViews Load Content<a class="headerlink" href="#testing-how-webviews-load-content" title="Permanent link">&para;</a></h3>
 <p>If a WebView is loading content from the app data directory, users should not be able to change the filename or path from which the file is loaded, and they shouldn't be able to edit the loaded file.</p>
-<p>This presents an issue especially in <code>UIWebView</code>s loading untrusted content via the deprecated methods <a href="https://developer.apple.com/documentation/uikit/uiwebview/1617979-loadhtmlstring?language=objc" title="UIWebView loadHTMLString:baseURL:"><code>loadHTMLString:baseURL:</code></a> or <a href="https://developer.apple.com/documentation/uikit/uiwebview/1617941-loaddata?language=objc" title="UIWebView loadData:MIMEType:textEncodingName:baseURL:"><code>loadData:MIMEType:textEncodingName: baseURL:</code></a> and setting the <code>baseURL</code> parameter to <code>nil</code> or to a <code>file:</code> or <code>applewebdata:</code> URL schemes. In this case, in order to prevent unauthorized access to local files, the best option is to set it instead to <code>about:blank</code>. However, the recommendation is to avoid the use of <code>UIWebView</code>s and switch to <code>WKWebView</code>s instead.</p>
+<p>This presents an issue especially in <code>UIWebView</code>s loading untrusted content via the deprecated methods <a href="https://developer.apple.com/documentation/uikit/uiwebview/1617979-loadhtmlstring?language=objc" title="UIWebView loadHTMLString:baseURL:"><code>loadHTMLString:baseURL:</code></a> or <a href="https://developer.apple.com/documentation/uikit/uiwebview/1617941-loaddata?language=objc" title="UIWebView loadData:MIMEType:textEncodingName:baseURL:"><code>loadData:MIMEType:textEncodingName:baseURL:</code></a> and setting the <code>baseURL</code> parameter to <code>nil</code> or to a <code>file:</code> or <code>applewebdata:</code> URL schemes. In this case, in order to prevent unauthorized access to local files, the best option is to set it instead to <code>about:blank</code>. However, the recommendation is to avoid the use of <code>UIWebView</code>s and switch to <code>WKWebView</code>s instead.</p>
 <p>Here's an example of a vulnerable <code>UIWebView</code> from <a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/blob/master/WheresMyBrowser/UIWebViewController.swift#L219" title="Where\'s My Browser? UIWebViewController.swift Line 219">"Where's My Browser?"</a>:</p>
 <div class="highlight"><pre><span></span><code>let scenario2HtmlPath = Bundle.main.url(forResource: &quot;web/UIWebView/scenario2.html&quot;, withExtension: nil)
 do {
@@ -20978,12 +20978,12 @@ wkWebView.loadFileURL(scenario1Url, allowingReadAccessTo: scenario1Url)
 <p>In a real-world scenario, JavaScript can only be injected through a permanent backend Cross-Site Scripting vulnerability or a MITM attack. See the OWASP <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html" title="XSS (Cross-Site Scripting) Prevention Cheat Sheet">XSS Prevention Cheat Sheet</a> and the chapter "<a href="../../../../0x06g-Testing-Network-Communication/">iOS Network Communication</a>" for more information.</p>
 <p>For what concerns this section we will learn about:</p>
 <ul>
-<li>Checking how WebViews are loaded</li>
+<li>Testing How WebViews Load Content</li>
 <li>Determining WebView file access</li>
 </ul>
-<h3 id="checking-how-webviews-are-loaded">Checking How WebViews are Loaded<a class="headerlink" href="#checking-how-webviews-are-loaded" title="Permanent link">&para;</a></h3>
-<p>As we have seen above in "Testing How WebViews are Loaded", if "scenario 2" of the WKWebViews is loaded, the app will do so by calling <a href="https://developer.apple.com/documentation/foundation/nsbundle/1411540-urlforresource?language=objc" title="NSBundle URLForResource:withExtension:"><code>URLForResource:withExtension:</code></a> and <code>loadHTMLString:baseURL</code>.</p>
-<p>To quickly inspect this, you can use frida-trace and trace all "loadHTMLString" and "URLForResource:withExtension:" methods.</p>
+<h3 id="testing-how-webviews-load-content_1">Testing How WebViews Load Content<a class="headerlink" href="#testing-how-webviews-load-content_1" title="Permanent link">&para;</a></h3>
+<p>If <code>WKWebView</code>'s "scenario 2" of the <a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/blob/master/WheresMyBrowser/WKWebViewController.swift#L196">"Where's My Browser?"</a> app is loaded, the app will do so by calling <a href="https://developer.apple.com/documentation/foundation/nsbundle/1411540-urlforresource?language=objc" title="NSBundle URLForResource:withExtension:"><code>URLForResource:withExtension:</code></a> and <code>loadHTMLString:baseURL</code>.</p>
+<p>To quickly inspect this, you can use frida-trace and trace all <code>loadHTMLString</code> and <code>URLForResource:withExtension:</code> methods.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>frida-trace<span class="w"> </span>-U<span class="w"> </span><span class="s2">&quot;Where&#39;s My Browser?&quot;</span>
 <span class="w">    </span>-m<span class="w"> </span><span class="s2">&quot;*[WKWebView *loadHTMLString*]&quot;</span><span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;*[* URLForResource:withExtension:]&quot;</span>
 

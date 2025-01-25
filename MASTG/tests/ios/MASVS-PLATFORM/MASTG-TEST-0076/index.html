@@ -8959,9 +8959,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing-javascript-configuration" class="md-nav__link">
+  <a href="#testing-if-javascript-is-enabled" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing JavaScript Configuration
+      Testing if JavaScript is Enabled
     </span>
   </a>
   
@@ -20746,9 +20746,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#testing-javascript-configuration" class="md-nav__link">
+  <a href="#testing-if-javascript-is-enabled" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing JavaScript Configuration
+      Testing if JavaScript is Enabled
     </span>
   </a>
   
@@ -20972,10 +20972,10 @@
 <h2 id="static-analysis">Static Analysis<a class="headerlink" href="#static-analysis" title="Permanent link">&para;</a></h2>
 <p>For the static analysis we will focus mostly on the following points having <code>UIWebView</code> and <code>WKWebView</code> under scope.</p>
 <ul>
-<li><a href="#identifying-webview-usage">Identifying WebView usage</a></li>
-<li><a href="#testing-javascript-configuration">Testing JavaScript configuration</a></li>
-<li><a href="#testing-for-mixed-content">Testing for Mixed Content</a></li>
-<li><a href="#testing-for-webview-uri-manipulation">Testing for WebView URI manipulation</a></li>
+<li>Identifying WebView usage</li>
+<li>Testing if JavaScript is Enabled</li>
+<li>Testing for Mixed Content</li>
+<li>Testing for WebView URI Manipulation</li>
 </ul>
 <h3 id="identifying-webview-usage">Identifying WebView Usage<a class="headerlink" href="#identifying-webview-usage" title="Permanent link">&para;</a></h3>
 <p>Look out for usages of the above mentioned WebView classes by searching in Xcode.</p>
@@ -21006,8 +21006,8 @@
 ---&gt;<span class="w"> </span>@nonobjc<span class="w"> </span>__C.WKWebView.init<span class="o">(</span>frame:<span class="w"> </span>__C_Synthesized.CGRect,
 <span class="w">                                </span>configuration:<span class="w"> </span>__C.WKWebViewConfiguration<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>__C.WKWebView
 </code></pre></div>
-<h3 id="testing-javascript-configuration">Testing JavaScript Configuration<a class="headerlink" href="#testing-javascript-configuration" title="Permanent link">&para;</a></h3>
-<p>First of all, remember that JavaScript cannot be disabled for <code>UIWebVIews</code>.</p>
+<h3 id="testing-if-javascript-is-enabled">Testing if JavaScript is Enabled<a class="headerlink" href="#testing-if-javascript-is-enabled" title="Permanent link">&para;</a></h3>
+<p>First of all, remember that JavaScript cannot be disabled for <code>UIWebView</code>s.</p>
 <p>For <code>WKWebView</code>s, as a best practice, JavaScript should be disabled unless it is explicitly required. To verify that JavaScript was properly disabled search the project for usages of <code>WKPreferences</code> and ensure that the <a href="https://developer.apple.com/documentation/webkit/wkpreferences/1536203-javascriptenabled" title="WKPreferences javaScriptEnabled"><code>javaScriptEnabled</code></a> property is set to <code>false</code>:</p>
 <div class="highlight"><pre><span></span><code>let webPreferences = WKPreferences()
 webPreferences.javaScriptEnabled = false
@@ -21017,7 +21017,7 @@ webPreferences.javaScriptEnabled = false
 <span class="m">391</span><span class="w"> </span>0x0002f2c7<span class="w"> </span>0x10002f2c7<span class="w">  </span><span class="m">17</span><span class="w">  </span><span class="m">18</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>javaScriptEnabled
 <span class="m">392</span><span class="w"> </span>0x0002f2d9<span class="w"> </span>0x10002f2d9<span class="w">  </span><span class="m">21</span><span class="w">  </span><span class="m">22</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>setJavaScriptEnabled:
 </code></pre></div>
-<p>If user scripts were defined, they will continue running as the <code>javaScriptEnabled</code> property won't affect them. See <a href="https://developer.apple.com/documentation/webkit/wkusercontentcontroller" title="WKUserContentController">WKUserContentController</a> and <a href="https://developer.apple.com/documentation/webkit/wkuserscript" title="WKUserScript">WKUserScript</a> for more information on injecting user scripts to WKWebViews.</p>
+<p>If user scripts were defined, they will continue running as the <code>javaScriptEnabled</code> property won't affect them. See <a href="https://developer.apple.com/documentation/webkit/wkusercontentcontroller" title="WKUserContentController"><code>WKUserContentController</code></a> and <a href="https://developer.apple.com/documentation/webkit/wkuserscript" title="WKUserScript">WKUserScript</a> for more information on injecting user scripts to WKWebViews.</p>
 <h3 id="testing-for-mixed-content">Testing for Mixed Content<a class="headerlink" href="#testing-for-mixed-content" title="Permanent link">&para;</a></h3>
 <p>In contrast to <code>UIWebView</code>s, when using <code>WKWebView</code>s it is possible to detect <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=en" title="Preventing Mixed Content">mixed content</a> (HTTP content loaded from a HTTPS page). By using the method <a href="https://developer.apple.com/documentation/webkit/wkwebview/1415002-hasonlysecurecontent" title="WKWebView hasOnlySecureContent"><code>hasOnlySecureContent</code></a> it can be verified whether all resources on the page have been loaded through securely encrypted connections. This example from [#thiel2] (see page 159 and 160) uses this to ensure that only content loaded via HTTPS is shown to the user, otherwise an alert is displayed telling the user that mixed content was detected.</p>
 <p>In the compiled binary:</p>
@@ -21032,9 +21032,9 @@ webPreferences.javaScriptEnabled = false
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>For the dynamic analysis we will address the same points from the static analysis.</p>
 <ul>
-<li><a href="#enumerating-webview-instances">Enumerating WebView instances</a></li>
-<li><a href="#checking-if-javascript-is-enabled">Checking if JavaScript is enabled</a></li>
-<li><a href="#testing-for-mixed-content-1">Testing for Mixed Content</a></li>
+<li>Enumerating WebView Instances</li>
+<li>Testing if JavaScript is Enabled</li>
+<li>Testing for Mixed Content</li>
 </ul>
 <p>It is possible to identify WebViews and obtain all their properties on runtime by performing dynamic instrumentation. This is very useful when you don't have the original source code.</p>
 <p>For the following examples, we will keep using the <a href="https://github.com/authenticationfailure/WheresMyBrowser.iOS/" title="Where\'s My Browser? GitHub Repository">"Where's My Browser?"</a> app and Frida REPL.</p>
