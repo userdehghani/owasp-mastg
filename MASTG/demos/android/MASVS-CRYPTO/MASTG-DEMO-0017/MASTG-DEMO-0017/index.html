@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../../../../assets/logo_circle.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
     
     
       
@@ -21515,7 +21515,10 @@
 <a href="https://github.com/OWASP/owasp-mastg/blob/master/demos/android/MASVS-CRYPTO/MASTG-DEMO-0017/" target='_blank' class="md-button md-button--primary" style="margin: 5px; min-width: 12em;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 20H4a2 2 0 0 1-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5"/></svg></span>  Open MASTG-DEMO-0017 Folder</a>
 <a href="https://github.com/cpholguera/MASTestApp-Android" target='_blank' class="md-button md-button--primary" style="margin: 5px; min-width: 12em;"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M352 96c0 14.3-3.1 27.9-8.8 40.2l52.8 91.2c-23.7 25.3-54.2 44.1-88.5 53.6L256 192l-68 117.5c21.5 6.8 44.3 10.5 68.1 10.5 70.7 0 133.8-32.7 174.9-84 11.1-13.8 31.2-16 45-5s16 31.2 5 45c-52.9 65.8-134 108-225 108-35.4 0-69.4-6.4-100.7-18.1l-56.6 97.8c-4.7 8.1-11.7 14.7-20.1 18.9l-55.4 27.7c-5 2.5-10.9 2.2-15.6-.7S0 501.5 0 496v-55.4c0-8.4 2.2-16.7 6.5-24.1l60-103.7c-12.8-11.2-24.7-23.5-35.3-36.8-11.1-13.8-8.8-33.9 5-45s33.9-8.8 45 5c5.7 7.1 11.8 13.8 18.2 20.1l69.4-119.9C163.2 124 160 110.4 160 96c0-53 43-96 96-96s96 43 96 96m21 297.9c32.6-12.8 62.5-30.8 88.9-52.9l43.7 75.5c4.2 7.3 6.5 15.6 6.5 24.1V496c0 5.5-2.9 10.7-7.6 13.6s-10.6 3.2-15.6.7l-55.4-27.7c-8.4-4.2-15.4-10.8-20.1-18.9zM256 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64"/></svg></span> Build MASTG-DEMO-0017 APK</a></p>
 <h3 id="sample">Sample<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">MastgTest.kt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="sample-mastgtestkt" name="__tabbed_1" type="radio" /><input id="sample-mastgtest_reversedjava" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="sample-mastgtestkt">MastgTest.kt</label><label for="sample-mastgtest_reversedjava">MastgTest_reversed.java</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
 <span class="normal"> 4</span>
@@ -21542,35 +21545,106 @@
 <span class="normal">25</span>
 <span class="normal">26</span>
 <span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">package</span> <span class="n">org</span><span class="o">.</span><span class="n">owasp</span><span class="o">.</span><span class="n">mastestapp</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">package</span><span class="w"> </span><span class="nn">org.owasp.mastestapp</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">android.content.Context</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.Cipher</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.SecretKey</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.spec.SecretKeySpec</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">android.util.Base64</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">android.content.Context</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.crypto.Cipher</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.crypto.SecretKey</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">javax.crypto.spec.SecretKeySpec</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">android.util.Base64</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MastgTest</span><span class="p">(</span><span class="n">private</span> <span class="n">val</span> <span class="n">context</span><span class="p">:</span> <span class="n">Context</span><span class="p">)</span> <span class="p">{</span>
+<span class="kd">class</span><span class="w"> </span><span class="nc">MastgTest</span><span class="p">(</span><span class="kd">private</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">context</span><span class="p">:</span><span class="w"> </span><span class="n">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-    <span class="n">fun</span> <span class="n">mastgTest</span><span class="p">():</span> <span class="n">String</span> <span class="p">{</span>
+<span class="w">    </span><span class="kd">fun</span><span class="w"> </span><span class="nf">mastgTest</span><span class="p">():</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="p">{</span>
 
-        <span class="o">//</span> <span class="n">Bad</span><span class="p">:</span> <span class="n">Use</span> <span class="n">of</span> <span class="n">a</span> <span class="n">hardcoded</span> <span class="n">key</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">bytes</span><span class="p">)</span> <span class="k">for</span> <span class="n">encryption</span>
-        <span class="n">val</span> <span class="n">keyBytes</span> <span class="o">=</span> <span class="n">byteArrayOf</span><span class="p">(</span><span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x64</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x61</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x6A</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x6B</span><span class="p">,</span> <span class="mh">0x6C</span><span class="p">,</span> <span class="mh">0x73</span><span class="p">)</span> <span class="o">//</span> <span class="n">Example</span> <span class="n">key</span> <span class="nb">bytes</span>
-        <span class="n">val</span> <span class="n">cipher</span> <span class="o">=</span> <span class="n">Cipher</span><span class="o">.</span><span class="n">getInstance</span><span class="p">(</span><span class="s2">&quot;AES/GCM/NoPadding&quot;</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">secretKey</span> <span class="o">=</span> <span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span> <span class="s2">&quot;AES&quot;</span><span class="p">)</span>
-        <span class="n">cipher</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">Cipher</span><span class="o">.</span><span class="n">ENCRYPT_MODE</span><span class="p">,</span> <span class="n">secretKey</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// Bad: Use of a hardcoded key (from bytes) for encryption</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">keyBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">byteArrayOf</span><span class="p">(</span><span class="m">0</span><span class="n">x6C</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x61</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6B</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x64</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x73</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6C</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6A</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6B</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x61</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6C</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6B</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6A</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6C</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6B</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x6C</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="n">x73</span><span class="p">)</span><span class="w"> </span><span class="c1">// Example key bytes</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cipher</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;AES/GCM/NoPadding&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="n">Cipher</span><span class="p">.</span><span class="na">ENCRYPT_MODE</span><span class="p">,</span><span class="w"> </span><span class="n">secretKey</span><span class="p">)</span>
 
-        <span class="o">//</span> <span class="n">Bad</span><span class="p">:</span> <span class="n">Hardcoded</span> <span class="n">key</span> <span class="n">directly</span> <span class="ow">in</span> <span class="n">code</span> <span class="p">(</span><span class="n">security</span> <span class="n">risk</span><span class="p">)</span>
-        <span class="n">val</span> <span class="n">badSecretKeySpec</span> <span class="o">=</span> <span class="n">SecretKeySpec</span><span class="p">(</span><span class="s2">&quot;my secret here&quot;</span><span class="o">.</span><span class="n">toByteArray</span><span class="p">(),</span> <span class="s2">&quot;AES&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="c1">// Bad: Hardcoded key directly in code (security risk)</span>
+<span class="w">        </span><span class="kd">val</span><span class="w"> </span><span class="nv">badSecretKeySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="s">&quot;my secret here&quot;</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">)</span>
 
 
-        <span class="o">//</span> <span class="n">Returning</span> <span class="n">results</span>
-        <span class="k">return</span> <span class="s2">&quot;SUCCESS!!</span><span class="se">\n\n</span><span class="s2">The keys were generated and used successfully with the following details:</span><span class="se">\n\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-                <span class="s2">&quot;Hardcoded AES Encryption Key: ${Base64.encodeToString(keyBytes, Base64.DEFAULT)}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span>
-                <span class="s2">&quot;Hardcoded Key from string: ${Base64.encodeToString(badSecretKeySpec.encoded, Base64.DEFAULT)}</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="c1">// Returning results</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;SUCCESS!!\n\nThe keys were generated and used successfully with the following details:\n\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;Hardcoded AES Encryption Key: </span><span class="si">${</span><span class="n">Base64</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span><span class="w"> </span><span class="n">Base64</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">)</span><span class="si">}</span><span class="s">\n&quot;</span><span class="w"> </span><span class="o">+</span>
+<span class="w">                </span><span class="s">&quot;Hardcoded Key from string: </span><span class="si">${</span><span class="n">Base64</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">badSecretKeySpec</span><span class="p">.</span><span class="na">encoded</span><span class="p">,</span><span class="w"> </span><span class="n">Base64</span><span class="p">.</span><span class="na">DEFAULT</span><span class="p">)</span><span class="si">}</span><span class="s">\n&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">org.owasp.mastestapp</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">android.content.Context</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">android.util.Base64</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.Cipher</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javax.crypto.spec.SecretKeySpec</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kotlin.Metadata</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kotlin.jvm.internal.Intrinsics</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kotlin.text.Charsets</span><span class="p">;</span>
+
+<span class="cm">/* compiled from: MastgTest.kt */</span>
+<span class="nd">@Metadata</span><span class="p">(</span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\b\u0007\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0006\u0010\u0005\u001a\u00020\u0006R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0007&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Lorg/owasp/mastestapp/MastgTest;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;context&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Landroid/content/Context;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;(Landroid/content/Context;)V&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;mastgTest&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app_debug&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">xi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">48</span><span class="p">)</span>
+<span class="cm">/* loaded from: classes4.dex */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MastgTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">$stable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">MastgTest</span><span class="p">(</span><span class="n">Context</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Intrinsics</span><span class="p">.</span><span class="na">checkNotNullParameter</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;context&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">mastgTest</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">keyBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">106</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">107</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">};</span>
+<span class="w">        </span><span class="n">Cipher</span><span class="w"> </span><span class="n">cipher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Cipher</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;AES/GCM/NoPadding&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SecretKeySpec</span><span class="w"> </span><span class="n">secretKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">cipher</span><span class="p">.</span><span class="na">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">secretKey</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">byte</span><span class="o">[]</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;my secret here&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(</span><span class="n">Charsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Intrinsics</span><span class="p">.</span><span class="na">checkNotNullExpressionValue</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;this as java.lang.String).getBytes(charset)&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">SecretKeySpec</span><span class="w"> </span><span class="n">badSecretKeySpec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">SecretKeySpec</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;SUCCESS!!\n\nThe keys were generated and used successfully with the following details:\n\nHardcoded AES Encryption Key: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Base64</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">keyBytes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\nHardcoded Key from string: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Base64</span><span class="p">.</span><span class="na">encodeToString</span><span class="p">(</span><span class="n">badSecretKeySpec</span><span class="p">.</span><span class="na">getEncoded</span><span class="p">(),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <p>Let's run our <em><a href="../../../../../tools/generic/MASTG-TOOL-0110/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> semgrep</a></em> rule against the sample code.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">../../../../rules/mastg-android-hardcoded-crypto-keys-usage.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -21751,7 +21825,7 @@
     <script id="__config" type="application/json">{"base": "../../../../../..", "features": ["search.suggest", "search.share", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.action.edit"], "search": "../../../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": {"L1": "l1", "L2": "l2", "P": "p", "R": "r", "android": "android", "app": "app", "best": "best", "demo": "demo", "deprecated": "deprecated", "draft": "draft", "ios": "ios", "masvs": "masvs", "maswe": "maswe", "new": "new", "tech": "tech", "test": "test", "tool": "tool"}, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../../../assets/javascripts/bundle.f13b1293.min.js"></script>
+      <script src="../../../../../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
         <script src="../../../../../../javascripts/external_links.js"></script>
       
