@@ -20,7 +20,7 @@
     
     
       
-        <title>MASTG-TECH-0092: Repackaging and Re-Signing - OWASP Mobile Application Security</title>
+        <title>MASTG-TECH-0092: Signing IPA files - OWASP Mobile Application Security</title>
       
     
     
@@ -193,7 +193,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fastlane" class="md-skip">
+        <a href="#using-fastlane" class="md-skip">
           Skip to content
         </a>
       
@@ -228,7 +228,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MASTG-TECH-0092: Repackaging and Re-Signing
+              MASTG-TECH-0092: Signing IPA files
             
           </span>
         </div>
@@ -15025,7 +15025,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg>
   
   <span class="md-ellipsis">
-    MASTG-TECH-0079: Getting a Developer Provisioning Profile
+    MASTG-TECH-0079: Obtaining a Developer Provisioning Profile
     
   </span>
   
@@ -15344,7 +15344,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg>
   
   <span class="md-ellipsis">
-    MASTG-TECH-0092: Repackaging and Re-Signing
+    MASTG-TECH-0092: Signing IPA files
     
   </span>
   
@@ -15358,7 +15358,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg>
   
   <span class="md-ellipsis">
-    MASTG-TECH-0092: Repackaging and Re-Signing
+    MASTG-TECH-0092: Signing IPA files
     
   </span>
   
@@ -15379,9 +15379,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fastlane" class="md-nav__link">
+  <a href="#using-fastlane" class="md-nav__link">
     <span class="md-ellipsis">
-      fastlane
+      Using fastlane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-sideloadly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Sideloadly
     </span>
   </a>
   
@@ -17360,6 +17369,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
       
@@ -17765,7 +17780,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
   
   <span class="md-ellipsis">
-    MASTG-TOOL-0055: iProxy
+    MASTG-TOOL-0055: iproxy
     
   </span>
   
@@ -18414,6 +18429,78 @@
   
   <span class="md-ellipsis">
     MASTG-TOOL-0122: c++filt
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/ios/MASTG-TOOL-0126/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0126: libimobiledevice suite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/ios/MASTG-TOOL-0127/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0127: AppSync Unified
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/ios/MASTG-TOOL-0128/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0128: Filza
     
   </span>
   
@@ -21337,9 +21424,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fastlane" class="md-nav__link">
+  <a href="#using-fastlane" class="md-nav__link">
     <span class="md-ellipsis">
-      fastlane
+      Using fastlane
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-sideloadly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Sideloadly
     </span>
   </a>
   
@@ -21448,19 +21544,23 @@
   
 
 
-  <h1>MASTG-TECH-0092: Repackaging and Re-Signing</h1>
+  <h1>MASTG-TECH-0092: Signing IPA files</h1>
 
-<p>Tampering with an app invalidates the code signature of the main executable, so it won't run on a non-jailbroken device.</p>
-<p>Before re-signing and IPA you need to obtain a developer provisioning profile and certificate, see <em><a href="../MASTG-TECH-0079/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Getting a Developer Provisioning Profile</a></em>.</p>
-<p>The re-signing process can be done manually using <em><a href="../../../tools/ios/MASTG-TOOL-0102/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> ios-app-signer</a></em>, or by using automated tools like <em><a href="../../../tools/ios/MASTG-TOOL-0117/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> fastlane</a></em> or <em><a href="../../../tools/ios/MASTG-TOOL-0114/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> codesign</a></em>.</p>
-<h2 id="fastlane"><em><a href="../../../tools/ios/MASTG-TOOL-0117/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> fastlane</a></em><a class="headerlink" href="#fastlane" title="Permanent link">&para;</a></h2>
-<p>Create a directory <code>fastlane</code> and create a <code>Fastfile</code> file as described in the documentation for <a href="https://docs.fastlane.tools/actions/resign/">resigning</a>.</p>
+<p>To install an IPA file on a non-jailbroken device, it needs to have a valid signature. On a jailbroken device, this is not required after installing <em><a href="../../../tools/ios/MASTG-TOOL-0127/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> AppSync Unified</a></em>.</p>
+<p>First, you need to obtain a developer provisioning profile and certificate, as explained in <em><a href="../MASTG-TECH-0079/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Obtaining a Developer Provisioning Profile</a></em>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you have a normal Apple account, you will only be able to sign the IPA with a modified (unique) Bundle identifier. If you have a Developer account, you can sign with the original Bundle identifier.</p>
+</div>
+<p>The signing process can be done using <em><a href="../../../tools/ios/MASTG-TOOL-0102/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> ios-app-signer</a></em>, <em><a href="../../../tools/ios/MASTG-TOOL-0117/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> fastlane</a></em>, <em><a href="../../../tools/ios/MASTG-TOOL-0118/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> Sideloadly</a></em> or <em><a href="../../../tools/ios/MASTG-TOOL-0114/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> codesign</a></em>.</p>
+<h2 id="using-fastlane">Using fastlane<a class="headerlink" href="#using-fastlane" title="Permanent link">&para;</a></h2>
+<p>Create a directory <code>fastlane</code> and create a <code>Fastfile</code> file as described in the documentation for <a href="https://docs.fastlane.tools/actions/resign/">resigning</a>. Put both the <code>Fastfile</code> and your IPA in the <code>fastlane</code> directory.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">lane :resignipa do</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">resign(</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">ipa</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;&lt;PATH-to-IPA/filename.ipa&quot;</span><span class="err">,</span>
-<span class="w">    </span><span class="nt">signing_identity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Apple</span><span class="nv"> </span><span class="s">Development:</span><span class="nv"> </span><span class="s">Foobar</span><span class="nv"> </span><span class="s">(STGXYCETF3)&quot;</span><span class="err">,</span>
-<span class="w">    </span><span class="nt">provisioning_profile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;~/Library/MobileDevice/Provisioning</span><span class="nv"> </span><span class="s">Profiles/&lt;FILE-NAME&gt;.mobileprovision&quot;</span><span class="err">,</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">ipa</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;./filename.ipa&quot;</span><span class="err">,</span>
+<span class="w">    </span><span class="nt">signing_identity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Apple</span><span class="nv"> </span><span class="s">Development:</span><span class="nv"> </span><span class="s">MAS@owasp.org</span><span class="nv"> </span><span class="s">(LVGBSLUQB4)&quot;</span><span class="err">,</span>
+<span class="w">    </span><span class="nt">provisioning_profile</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;./embedded.mobileprovision&quot;</span><span class="err">,</span>
 <span class="w w-Error">  </span><span class="l l-Scalar l-Scalar-Plain">)</span>
 <span class="l l-Scalar l-Scalar-Plain">end</span>
 </code></pre></div>
@@ -21486,8 +21586,35 @@
 
 <span class="o">[</span><span class="m">15</span>:22:03<span class="o">]</span>:<span class="w"> </span>fastlane.tools<span class="w"> </span>finished<span class="w"> </span>successfully<span class="w"> </span>🎉
 </code></pre></div>
-<p>After having this set up once, you only need to change the path in the <code>Fastfile</code> for the IPA you want to resign and execute the command again.</p>
+<p>Once this is set up, all you need to do is change the path in the <code>Fastfile</code> for the IPA you want to resign and run the command again.</p>
 <p>More information can be found in the official documentation: <a href="https://docs.fastlane.tools/actions/resign/">"Codesign an existing ipa file with fastlane resign"</a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, fastlane will always use the Bundle identifier from the given provisioning profile, both for normal Apple accounts and Developer accounts. If you have a Developer account, you can specify the desired Bundle identifier by directly using the <code>resign.sh</code> script bundled with Fastlane and specifying the <code>--bundle-id</code> property:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>/opt/homebrew/Cellar/fastlane/2.226.0/libexec/gems/fastlane-2.226.0/sigh/lib/assets/resign.sh<span class="w"> </span>/Users/MAS/uncrackable1.ipa<span class="w"> </span>&lt;CERTIFICATE&gt;<span class="w"> </span>-p<span class="w"> </span>/Users/MAS/embedded.mobileprovision<span class="w"> </span>/Users/MAS/signed.ipa<span class="w"> </span>-v<span class="w"> </span>--bundle-id<span class="w"> </span><span class="s2">&quot;org.mas.myapp&quot;</span>
+
+Specified<span class="w"> </span>provisioning<span class="w"> </span>profile:<span class="w"> </span><span class="s1">&#39;/Users/MAS/embedded.mobileprovision&#39;</span>
+Original<span class="w"> </span>file:<span class="w"> </span><span class="s1">&#39;/Users/MAS/uncrackable1.ipa&#39;</span>
+Certificate:<span class="w"> </span><span class="s1">&#39;&lt;CERTIFICATE&gt;&#39;</span>
+Specified<span class="w"> </span>bundle<span class="w"> </span>identifier:<span class="w"> </span><span class="s1">&#39;org.mas.myapp&#39;</span>
+Output<span class="w"> </span>file<span class="w"> </span>name:<span class="w"> </span><span class="s1">&#39;/Users/MAS/signed.ipa&#39;</span>
+Current<span class="w"> </span>bundle<span class="w"> </span>identifier<span class="w"> </span>is:<span class="w"> </span><span class="s1">&#39;org.mas.testapp&#39;</span>
+New<span class="w"> </span>bundle<span class="w"> </span>identifier<span class="w"> </span>will<span class="w"> </span>be:<span class="w"> </span><span class="s1">&#39;org.mas.myapp&#39;</span>
+Validating<span class="w"> </span>the<span class="w"> </span>new<span class="w"> </span>provisioning<span class="w"> </span>profile:<span class="w"> </span>/Users/MAS/embedded.mobileprovision
+Profile<span class="w"> </span>app<span class="w"> </span>identifier<span class="w"> </span>prefix<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;6FZT6QZ6X3&#39;</span>
+Profile<span class="w"> </span>team<span class="w"> </span>identifier<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;6FZT6QZ6X3&#39;</span>
+Updating<span class="w"> </span>the<span class="w"> </span>bundle<span class="w"> </span>identifier<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;org.mas.testapp&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;org.mas.myapp&#39;</span>
+Fixing<span class="w"> </span>nested<span class="w"> </span>app<span class="w"> </span>and<span class="w"> </span>extension<span class="w"> </span>references
+Extracting<span class="w"> </span>entitlements<span class="w"> </span>from<span class="w"> </span>provisioning<span class="w"> </span>profile
+Resigning<span class="w"> </span>application<span class="w"> </span>using<span class="w"> </span>certificate:<span class="w"> </span><span class="s1">&#39;&lt;CERTIFICATE&gt;&#39;</span>
+and<span class="w"> </span>entitlements<span class="w"> </span>from<span class="w"> </span>provisioning<span class="w"> </span>profile:<span class="w"> </span>/Users/MAS/embedded.mobileprovision
+_floatsignTemp/Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app:<span class="w"> </span>replacing<span class="w"> </span>existing<span class="w"> </span>signature
+_floatsignTemp/Payload/UnCrackable<span class="w"> </span>Level<span class="w"> </span><span class="m">1</span>.app:<span class="w"> </span>signed<span class="w"> </span>app<span class="w"> </span>bundle<span class="w"> </span>with<span class="w"> </span>Mach-O<span class="w"> </span>universal<span class="w"> </span><span class="o">(</span>armv7<span class="w"> </span>arm64<span class="o">)</span><span class="w"> </span><span class="o">[</span>org.mas.myapp<span class="o">]</span>
+Repackaging<span class="w"> </span>as<span class="w"> </span>/Users/MAS/signed.ipa
+</code></pre></div>
+</div>
+<h2 id="using-sideloadly">Using Sideloadly<a class="headerlink" href="#using-sideloadly" title="Permanent link">&para;</a></h2>
+<p>Sideloadly can take care of obtaining a valid certificate for your app, but it is not possible to simply sign an existing IPA file in-place. Sideloadly will sign the given IPA file and directly install it on the connected device. When using a normal Apple account, Sideloadly will modify the original package name by appending your team identifier (e.g. <code>sg.vp.UnCrackable1</code> becomes <code>sg.vp.UnCrackable1.QH868V5764</code>)</p>
 
 
 
