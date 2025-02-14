@@ -15921,6 +15921,8 @@
       
         
       
+        
+      
     
     
       
@@ -16303,6 +16305,30 @@
   
   <span class="md-ellipsis">
     MASTG-TOOL-0110: semgrep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/generic/MASTG-TOOL-0129/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0129: rabin2
     
   </span>
   
@@ -21775,7 +21801,7 @@
 </ul>
 <h3 id="identifying-webview-usage">Identifying WebView Usage<a class="headerlink" href="#identifying-webview-usage" title="Permanent link">&para;</a></h3>
 <p>Look out for usages of the above mentioned WebView classes by searching in Xcode.</p>
-<p>In the compiled binary you can search in its symbols or strings like this:</p>
+<p>In the compiled binary you can search in its symbols or strings, for example using <em><a href="../../../../tools/generic/MASTG-TOOL-0129/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> rabin2</a></em> like this:</p>
 <h4 id="uiwebview">UIWebView<a class="headerlink" href="#uiwebview" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-zz<span class="w"> </span>./WheresMyBrowser<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s2">&quot;UIWebView</span>$<span class="s2">&quot;</span>
 <span class="m">489</span><span class="w"> </span>0x0002fee9<span class="w"> </span>0x10002fee9<span class="w">   </span><span class="m">9</span><span class="w">  </span><span class="m">10</span><span class="w"> </span><span class="o">(</span><span class="m">5</span>.__TEXT.__cstring<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>UIWebView
@@ -21808,7 +21834,7 @@
 <div class="highlight"><pre><span></span><code>let webPreferences = WKPreferences()
 webPreferences.javaScriptEnabled = false
 </code></pre></div>
-<p>If only having the compiled binary you can search for this in it:</p>
+<p>If only having the compiled binary you can search for this in it using <em><a href="../../../../tools/generic/MASTG-TOOL-0129/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> rabin2</a></em>:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-zz<span class="w"> </span>./WheresMyBrowser<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;javascriptenabled&quot;</span>
 <span class="m">391</span><span class="w"> </span>0x0002f2c7<span class="w"> </span>0x10002f2c7<span class="w">  </span><span class="m">17</span><span class="w">  </span><span class="m">18</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>javaScriptEnabled
 <span class="m">392</span><span class="w"> </span>0x0002f2d9<span class="w"> </span>0x10002f2d9<span class="w">  </span><span class="m">21</span><span class="w">  </span><span class="m">22</span><span class="w"> </span><span class="o">(</span><span class="m">4</span>.__TEXT.__objc_methname<span class="o">)</span><span class="w"> </span>ascii<span class="w"> </span>setJavaScriptEnabled:
@@ -21816,7 +21842,7 @@ webPreferences.javaScriptEnabled = false
 <p>If user scripts were defined, they will continue running as the <code>javaScriptEnabled</code> property won't affect them. See <a href="https://developer.apple.com/documentation/webkit/wkusercontentcontroller" title="WKUserContentController"><code>WKUserContentController</code></a> and <a href="https://developer.apple.com/documentation/webkit/wkuserscript" title="WKUserScript">WKUserScript</a> for more information on injecting user scripts to WKWebViews.</p>
 <h3 id="testing-for-mixed-content">Testing for Mixed Content<a class="headerlink" href="#testing-for-mixed-content" title="Permanent link">&para;</a></h3>
 <p>In contrast to <code>UIWebView</code>s, when using <code>WKWebView</code>s it is possible to detect <a href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content?hl=en" title="Preventing Mixed Content">mixed content</a> (HTTP content loaded from a HTTPS page). By using the method <a href="https://developer.apple.com/documentation/webkit/wkwebview/1415002-hasonlysecurecontent" title="WKWebView hasOnlySecureContent"><code>hasOnlySecureContent</code></a> it can be verified whether all resources on the page have been loaded through securely encrypted connections. This example from [#thiel2] (see page 159 and 160) uses this to ensure that only content loaded via HTTPS is shown to the user, otherwise an alert is displayed telling the user that mixed content was detected.</p>
-<p>In the compiled binary:</p>
+<p>In the compiled binary you can use <em><a href="../../../../tools/generic/MASTG-TOOL-0129/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> rabin2</a></em>:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-zz<span class="w"> </span>./WheresMyBrowser<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;hasonlysecurecontent&quot;</span>
 
 <span class="c1"># nothing found</span>

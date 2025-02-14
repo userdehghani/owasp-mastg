@@ -15752,6 +15752,8 @@
       
         
       
+        
+      
     
     
       
@@ -16134,6 +16136,30 @@
   
   <span class="md-ellipsis">
     MASTG-TOOL-0110: semgrep
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generic/MASTG-TOOL-0129/" class="md-nav__link">
+        
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg>
+  
+  <span class="md-ellipsis">
+    MASTG-TOOL-0129: rabin2
     
   </span>
   
@@ -21567,57 +21593,7 @@ $<span class="w"> </span>rafind2<span class="w"> </span>-ZS<span class="w"> </sp
 <span class="c1"># Receivers</span>
 $<span class="w"> </span>rafind2<span class="w"> </span>-ZS<span class="w"> </span>receiver<span class="w"> </span>AndroidManifest.xml
 </code></pre></div>
-<p>Or use <code>rabin2</code> to get information about a binary file:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-I<span class="w"> </span>UnCrackable-Level1/classes.dex
-arch<span class="w">     </span>dalvik
-baddr<span class="w">    </span>0x0
-binsz<span class="w">    </span><span class="m">5528</span>
-bintype<span class="w">  </span>class
-bits<span class="w">     </span><span class="m">32</span>
-canary<span class="w">   </span><span class="nb">false</span>
-retguard<span class="w"> </span><span class="nb">false</span>
-class<span class="w">    </span><span class="m">035</span>
-crypto<span class="w">   </span><span class="nb">false</span>
-endian<span class="w">   </span>little
-havecode<span class="w"> </span><span class="nb">true</span>
-laddr<span class="w">    </span>0x0
-lang<span class="w">     </span>dalvik
-linenum<span class="w">  </span><span class="nb">false</span>
-lsyms<span class="w">    </span><span class="nb">false</span>
-machine<span class="w">  </span>Dalvik<span class="w"> </span>VM
-maxopsz<span class="w">  </span><span class="m">16</span>
-minopsz<span class="w">  </span><span class="m">1</span>
-nx<span class="w">       </span><span class="nb">false</span>
-os<span class="w">       </span>linux
-pcalign<span class="w">  </span><span class="m">0</span>
-pic<span class="w">      </span><span class="nb">false</span>
-relocs<span class="w">   </span><span class="nb">false</span>
-sanitiz<span class="w">  </span><span class="nb">false</span>
-static<span class="w">   </span><span class="nb">true</span>
-stripped<span class="w"> </span><span class="nb">false</span>
-subsys<span class="w">   </span>java
-va<span class="w">       </span><span class="nb">true</span>
-sha1<span class="w">  </span><span class="m">12</span>-5508c<span class="w">  </span>b7fafe72cb521450c4470043caa332da61d1bec7
-adler32<span class="w">  </span><span class="m">12</span>-5528c<span class="w">  </span><span class="m">00000000</span>
-</code></pre></div>
-<p>Type <code>rabin2 -h</code> to see all options:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rabin2<span class="w"> </span>-h
-Usage:<span class="w"> </span>rabin2<span class="w"> </span><span class="o">[</span>-AcdeEghHiIjlLMqrRsSUvVxzZ<span class="o">]</span><span class="w"> </span><span class="o">[</span>-@<span class="w"> </span>at<span class="o">]</span><span class="w"> </span><span class="o">[</span>-a<span class="w"> </span>arch<span class="o">]</span><span class="w"> </span><span class="o">[</span>-b<span class="w"> </span>bits<span class="o">]</span><span class="w"> </span><span class="o">[</span>-B<span class="w"> </span>addr<span class="o">]</span>
-<span class="w">              </span><span class="o">[</span>-C<span class="w"> </span>F:C:D<span class="o">]</span><span class="w"> </span><span class="o">[</span>-f<span class="w"> </span>str<span class="o">]</span><span class="w"> </span><span class="o">[</span>-m<span class="w"> </span>addr<span class="o">]</span><span class="w"> </span><span class="o">[</span>-n<span class="w"> </span>str<span class="o">]</span><span class="w"> </span><span class="o">[</span>-N<span class="w"> </span>m:M<span class="o">]</span><span class="w"> </span><span class="o">[</span>-P<span class="o">[</span>-P<span class="o">]</span><span class="w"> </span>pdb<span class="o">]</span>
-<span class="w">              </span><span class="o">[</span>-o<span class="w"> </span>str<span class="o">]</span><span class="w"> </span><span class="o">[</span>-O<span class="w"> </span>str<span class="o">]</span><span class="w"> </span><span class="o">[</span>-k<span class="w"> </span>query<span class="o">]</span><span class="w"> </span><span class="o">[</span>-D<span class="w"> </span>lang<span class="w"> </span>symname<span class="o">]</span><span class="w"> </span>file
-<span class="w"> </span>-@<span class="w"> </span><span class="o">[</span>addr<span class="o">]</span><span class="w">       </span>show<span class="w"> </span>section,<span class="w"> </span>symbol<span class="w"> </span>or<span class="w"> </span>import<span class="w"> </span>at<span class="w"> </span>addr
-<span class="w"> </span>-A<span class="w">              </span>list<span class="w"> </span>sub-binaries<span class="w"> </span>and<span class="w"> </span>their<span class="w"> </span>arch-bits<span class="w"> </span>pairs
-<span class="w"> </span>-a<span class="w"> </span><span class="o">[</span>arch<span class="o">]</span><span class="w">       </span><span class="nb">set</span><span class="w"> </span>arch<span class="w"> </span><span class="o">(</span>x86,<span class="w"> </span>arm,<span class="w"> </span>..<span class="w"> </span>or<span class="w"> </span>&lt;arch&gt;_&lt;bits&gt;<span class="o">)</span>
-<span class="w"> </span>-b<span class="w"> </span><span class="o">[</span>bits<span class="o">]</span><span class="w">       </span><span class="nb">set</span><span class="w"> </span>bits<span class="w"> </span><span class="o">(</span><span class="m">32</span>,<span class="w"> </span><span class="m">64</span><span class="w"> </span>...<span class="o">)</span>
-<span class="w"> </span>-B<span class="w"> </span><span class="o">[</span>addr<span class="o">]</span><span class="w">       </span>override<span class="w"> </span>base<span class="w"> </span>address<span class="w"> </span><span class="o">(</span>pie<span class="w"> </span>bins<span class="o">)</span>
-<span class="w"> </span>-c<span class="w">              </span>list<span class="w"> </span>classes
-<span class="w"> </span>-cc<span class="w">             </span>list<span class="w"> </span>classes<span class="w"> </span><span class="k">in</span><span class="w"> </span>header<span class="w"> </span>format
-<span class="w"> </span>-H<span class="w">              </span>header<span class="w"> </span>fields
-<span class="w"> </span>-i<span class="w">              </span>imports<span class="w"> </span><span class="o">(</span>symbols<span class="w"> </span>imported<span class="w"> </span>from<span class="w"> </span>libraries<span class="o">)</span>
-<span class="w"> </span>-I<span class="w">              </span>binary<span class="w"> </span>info
-<span class="w"> </span>-j<span class="w">              </span>output<span class="w"> </span><span class="k">in</span><span class="w"> </span>json
-<span class="w"> </span>...
-</code></pre></div>
+<p>Or use <em><a href="../../generic/MASTG-TOOL-0129/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.875 2.292a.1.1 0 0 0-.032.018A7.24 7.24 0 0 0 4.75 8.25a7.25 7.25 0 0 0 3.654 6.297c.57.327.982.955.941 1.682v.002l-.317 6.058a.75.75 0 1 1-1.498-.078l.317-6.062v-.004c.006-.09-.047-.215-.188-.296A8.75 8.75 0 0 1 3.25 8.25a8.74 8.74 0 0 1 3.732-7.169 1.55 1.55 0 0 1 1.709-.064c.484.292.809.835.809 1.46v4.714a.25.25 0 0 0 .119.213l2.25 1.385c.08.05.182.05.262 0l2.25-1.385a.25.25 0 0 0 .119-.213V2.478c0-.626.325-1.169.81-1.461a1.55 1.55 0 0 1 1.708.064 8.74 8.74 0 0 1 3.732 7.17 8.75 8.75 0 0 1-4.41 7.598c-.14.081-.193.206-.188.296v.004l.318 6.062a.75.75 0 1 1-1.498.078l-.317-6.058v-.002c-.041-.727.37-1.355.94-1.682A7.25 7.25 0 0 0 19.25 8.25a7.24 7.24 0 0 0-3.093-5.94.1.1 0 0 0-.032-.018l-.01-.001c-.003 0-.014 0-.031.01-.036.022-.084.079-.084.177V7.19c0 .608-.315 1.172-.833 1.49l-2.25 1.385a1.75 1.75 0 0 1-1.834 0l-2.25-1.384A1.75 1.75 0 0 1 8 7.192V2.477c0-.098-.048-.155-.084-.176a.1.1 0 0 0-.031-.011z"/></svg></span> rabin2</a></em> to get information about a binary file.</p>
 <p>Use the main <code>r2</code> utility to access the <strong>r2 shell</strong>. You can load DEX binaries just like any other binary:</p>
 <div class="highlight"><pre><span></span><code>r2<span class="w"> </span>classes.dex
 </code></pre></div>
