@@ -21849,7 +21849,7 @@
 <span class="w">   </span><span class="kd">function</span><span class="w"> </span><span class="nx">errorCallback</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">     </span><span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
 <span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s2">&quot;CONNECTION_NOT_SECURE&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">       </span><span class="c1">// There is likely a man in the middle attack going on, be careful!</span>
+<span class="w">       </span><span class="c1">// There is likely a MITM attack going on, be careful!</span>
 <span class="w">     </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&quot;CONNECTION_FAILED&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">       </span><span class="c1">// There was no connection (yet). Internet may be down. Try again (a few times) after a little timeout.</span>
 <span class="w">     </span><span class="p">}</span>
