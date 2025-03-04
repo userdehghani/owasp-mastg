@@ -21981,7 +21981,7 @@ pod<span class="w"> </span>dependencies
 <ol>
 <li>If the developer packs all dependencies in terms of its own support library using a .podspec file, then this .podspec file can be checked with the experimental CocoaPods podspec checker.</li>
 <li>If the project uses CocoaPods in combination with Objective-C, SourceClear can be used.</li>
-<li>Using CocoaPods with HTTP-based links instead of HTTPS might allow for Machine-in-the-Middle (MITM) attacks during the download of the dependency, allowing an attacker to replace (parts of) the library with other content. Therefore, always use HTTPS.</li>
+<li>Using CocoaPods with HTTP-based links instead of HTTPS might allow for <a href="../../../../0x04f-Testing-Network-Communication/#intercepting-network-traffic-through-mitm">Machine-in-the-Middle (MITM)</a> attacks during the download of the dependency, allowing an attacker to replace (parts of) the library with other content. Therefore, always use HTTPS.</li>
 </ol>
 </blockquote>
 <p>You can utilize the <a href="https://owasp.org/www-project-dependency-check/" title="OWASP Dependency-Check">OWASP Dependency-Check</a>'s experimental <a href="https://jeremylong.github.io/DependencyCheck/analyzers/cocoapods.html" title="dependency-check - CocoaPods Analyzer">CocoaPods Analyzer</a>

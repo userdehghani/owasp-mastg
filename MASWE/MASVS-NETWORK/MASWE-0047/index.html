@@ -21837,7 +21837,7 @@
 </details>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><a href="../../MASTG/0x04f-Testing-Network-Communication/#restricting-trust-identity-pinning">Identity pinning (aka. certificate pinning, public key pinning or TLS pinning)</a> refers to associating a mobile app with a specific cryptographic identity, such as a certificate or public key to ensure that the app only communicates with trusted servers.</p>
-<p>When a mobile app does not implement certificate pinning, or if it is implemented incorrectly, the app remains vulnerable to Machine-in-the-Middle (MITM) attacks which enable attackers to intercept and modify the communication between the app and the intended server. This occurs because when the app is presented a fraudulent certificate that the app may unknowingly trust, thereby gaining access to sensitive data or injecting malicious content into the data stream.</p>
+<p>When a mobile app does not implement certificate pinning, or if it is implemented incorrectly, the app remains vulnerable to <a href="../../../MASTG/0x04f-Testing-Network-Communication/#intercepting-network-traffic-through-mitm">Machine-in-the-Middle (MITM)</a> attacks which enable attackers to intercept and modify the communication between the app and the intended server. This occurs because when the app is presented a fraudulent certificate that the app may unknowingly trust, thereby gaining access to sensitive data or injecting malicious content into the data stream.</p>
 <p><strong>Limitations</strong>: Certificate pinning adds a layer of trust verification by ensuring that the app only accepts connections to servers with specific, pre-determined certificates or public keys. This reduces the risk of unauthorized interception, even if a trusted Certificate Authority (CA) is compromised. However, it is not foolproof:</p>
 <ul>
 <li>Attackers who can reverse-engineer the app may analyze and remove or modify the pre-defined pins or the certificate pinning logic to permanently bypass the checks.</li>
@@ -21846,8 +21846,9 @@
 <p>This highlights the importance of implementing certificate pinning <strong>alongside other security measures</strong> to enhance the app's resistance to advanced threats.</p>
 <h2 id="impact">Impact<a class="headerlink" href="#impact" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Data Interception</strong>: Sensitive data such as credentials, personal information, or financial details can be captured by unauthorized parties.</li>
-<li><strong>Data Manipulation</strong>: Attackers can not only intercept but also manipulate data if pinning is not properly enforced.</li>
+<li><strong>Data Interception</strong>: Attackers can capture and read sensitive information transmitted over the network.</li>
+<li><strong>Data Manipulation</strong>: Attackers might alter data in transit, causing corruption or injecting malicious content.</li>
+<li><strong>Data Exposure</strong>: Sensitive information can be compromised.</li>
 <li><strong>Denial of Service</strong>: Incorrect pinning may cause legitimate connections to fail, leading to service disruptions for users. For example, if a pinned certificate expires and is not updated, the app may be unable to establish secure connections.</li>
 </ul>
 <h2 id="modes-of-introduction">Modes of Introduction<a class="headerlink" href="#modes-of-introduction" title="Permanent link">&para;</a></h2>
