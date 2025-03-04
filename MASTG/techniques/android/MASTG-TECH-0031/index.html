@@ -22048,7 +22048,7 @@ $<span class="w"> </span>su
 Attached<span class="p">;</span><span class="w"> </span><span class="nv">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12690</span>
 Listening<span class="w"> </span>on<span class="w"> </span>port<span class="w"> </span><span class="m">1234</span>
 </code></pre></div>
-<p>The process is now suspended, and <code>gdbserver</code> is listening for debugging clients on port <code>1234</code>. With the device connected via USB, you can forward this port to a local port on the host with the <code>abd forward</code> command:</p>
+<p>The process is now suspended, and <code>gdbserver</code> is listening for debugging clients on port <code>1234</code>. With the device connected via USB, you can forward this port to a local port on the host with the <code>adb forward</code> command:</p>
 <div class="highlight"><pre><span></span><code>adb<span class="w"> </span>forward<span class="w"> </span>tcp:1234<span class="w"> </span>tcp:1234
 </code></pre></div>
 <p>You'll now use the prebuilt version of <code>gdb</code> included in the NDK toolchain.</p>
