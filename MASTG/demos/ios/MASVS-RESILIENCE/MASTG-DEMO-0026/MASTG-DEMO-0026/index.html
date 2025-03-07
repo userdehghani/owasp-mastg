@@ -22048,10 +22048,70 @@
 <li>Click the <strong>Start</strong> button</li>
 <li>Stop the script by pressing <code>Ctrl+C</code></li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">run.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="steps-runsh" name="__tabbed_1" type="radio" /><input id="steps-scriptjs" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="steps-runsh">run.sh</label><label for="steps-scriptjs">script.js</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="n">frida</span> <span class="o">-</span><span class="n">U</span> <span class="o">-</span><span class="n">f</span> <span class="n">org</span><span class="o">.</span><span class="n">owasp</span><span class="o">.</span><span class="n">mastestapp</span><span class="o">.</span><span class="n">MASTestApp</span><span class="o">-</span><span class="n">iOS</span> <span class="o">-</span><span class="n">l</span> <span class="o">./</span><span class="n">script</span><span class="o">.</span><span class="n">js</span> <span class="o">-</span><span class="n">o</span> <span class="n">output</span><span class="o">.</span><span class="n">txt</span>
+frida<span class="w"> </span>-U<span class="w"> </span>-f<span class="w"> </span>org.owasp.mastestapp.MASTestApp-iOS<span class="w"> </span>-l<span class="w"> </span>./script.js<span class="w"> </span>-o<span class="w"> </span>output.txt
 </code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nx">Interceptor</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="nx">ObjC</span><span class="p">.</span><span class="nx">classes</span><span class="p">.</span><span class="nx">LAContext</span><span class="p">[</span><span class="s2">&quot;- canEvaluatePolicy:error:&quot;</span><span class="p">].</span><span class="nx">implementation</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">onEnter</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">LAPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="mf">1</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.deviceOwnerAuthenticationWithBiometrics&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">2</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.deviceOwnerAuthentication&quot;</span>
+<span class="w">      </span><span class="p">};</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">policy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">args</span><span class="p">[</span><span class="mf">2</span><span class="p">].</span><span class="nx">toInt32</span><span class="p">();</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">policyDescription</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">LAPolicy</span><span class="p">[</span><span class="nx">policy</span><span class="p">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;Unknown Policy&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`\nLAContext.canEvaluatePolicy(</span><span class="si">${</span><span class="nx">args</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="si">}</span><span class="sb">) called with </span><span class="si">${</span><span class="nx">policyDescription</span><span class="si">}</span><span class="sb"> (</span><span class="si">${</span><span class="nx">args</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="si">}</span><span class="sb">)\n`</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Use an arrow function so that `this` remains the same as in onEnter</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">printBacktrace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">maxLines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">8</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;\nBacktrace:&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="kd">let</span><span class="w"> </span><span class="nx">backtrace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Thread</span><span class="p">.</span><span class="nx">backtrace</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">,</span><span class="w"> </span><span class="nx">Backtracer</span><span class="p">.</span><span class="nx">ACCURATE</span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">DebugSymbol</span><span class="p">.</span><span class="nx">fromAddress</span><span class="p">);</span>
+
+<span class="w">          </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">maxLines</span><span class="p">,</span><span class="w"> </span><span class="nx">backtrace</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">backtrace</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="nx">printBacktrace</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
 <h3 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">output.txt</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
