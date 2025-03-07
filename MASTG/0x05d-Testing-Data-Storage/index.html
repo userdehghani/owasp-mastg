@@ -5786,6 +5786,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="External Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoped-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoped Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-storage-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Storage APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediastore-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      MediaStore API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manifest-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manifest Permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -22291,6 +22333,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="External Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scoped-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scoped Storage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#external-storage-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      External Storage APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mediastore-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      MediaStore API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manifest-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manifest Permissions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -22820,49 +22904,137 @@ python<span class="w"> </span>FirebaseScanner.py<span class="w"> </span>-f<span 
 <span class="p">}</span>
 </code></pre></div>
 <h3 id="internal-storage">Internal Storage<a class="headerlink" href="#internal-storage" title="Permanent link">&para;</a></h3>
-<p>You can save files to the device's <a href="https://developer.android.com/training/data-storage#filesInternal" title="Using Internal Storage">internal storage</a>. Files saved to internal storage are containerized by default and cannot be accessed by other apps on the device. When the user uninstalls your app, these files are removed.
-The following code snippets would persistently store sensitive data to internal storage.</p>
-<p>Example for Java:</p>
-<div class="highlight"><pre><span></span><code><span class="n">FileOutputStream</span><span class="w"> </span><span class="n">fos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
-<span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="n">fos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openFileOutput</span><span class="p">(</span><span class="n">FILENAME</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="na">MODE_PRIVATE</span><span class="p">);</span>
-<span class="w">   </span><span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
-<span class="w">   </span><span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">FileNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+<p>You can save files to the device's <a href="https://developer.android.com/training/data-storage#filesInternal" title="Using Internal Storage">internal storage</a>. Files saved to internal storage are containerized by default and cannot be accessed by other apps on the device. When the user uninstalls your app, these files are removed.</p>
+<p>For example, the following Kotlin snippet stores sensitive information in clear text to a file <code>password.txt</code> residing on internal storage.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">fileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sensitive_info.txt&quot;</span>
+<span class="kd">val</span><span class="w"> </span><span class="nv">fileContents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;This is some top-secret information!&quot;</span>
+<span class="n">File</span><span class="p">(</span><span class="n">filesDir</span><span class="p">,</span><span class="w"> </span><span class="n">fileName</span><span class="p">).</span><span class="na">bufferedWriter</span><span class="p">().</span><span class="na">use</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">writer</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="n">writer</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">fileContents</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Example for Kotlin:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nv">fos</span><span class="p">:</span><span class="w"> </span><span class="n">FileOutputStream? </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span>
-<span class="n">fos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">openFileOutput</span><span class="p">(</span><span class="s">&quot;FILENAME&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Context</span><span class="p">.</span><span class="na">MODE_PRIVATE</span><span class="p">)</span>
-<span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">test</span><span class="p">.</span><span class="na">toByteArray</span><span class="p">(</span><span class="n">Charsets</span><span class="p">.</span><span class="na">UTF_8</span><span class="p">))</span>
-<span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">()</span>
-</code></pre></div>
 <p>You should check the file mode to make sure that only the app can access the file. You can set this access with <code>MODE_PRIVATE</code>. Modes such as <code>MODE_WORLD_READABLE</code> (deprecated) and <code>MODE_WORLD_WRITEABLE</code> (deprecated) may pose a security risk.</p>
-<p>Search for the class <code>FileInputStream</code> to find out which files are opened and read within the app.</p>
+<p><strong>Android Security Guidelines</strong>: Android highlights that the data in the internal storage is private to the app and other apps cannot access it. It also recommends avoiding the use of <code>MODE_WORLD_READABLE</code> and <code>MODE_WORLD_WRITEABLE</code> modes for IPC files and use a <a href="https://developer.android.com/privacy-and-security/security-tips#content-providers">content provider</a> instead. See the <a href="https://developer.android.com/privacy-and-security/security-tips#internal-storage" title="Android Security Guidelines">Android Security Guidelines</a>. Android also provides a <a href="https://developer.android.com/privacy-and-security/security-best-practices#internal-storage" title="Store data in internal storage based on use case">guide</a> on how to use internal storage securely.</p>
 <h3 id="external-storage">External Storage<a class="headerlink" href="#external-storage" title="Permanent link">&para;</a></h3>
-<p>Every Android-compatible device supports <a href="https://developer.android.com/training/data-storage#filesExternal" title="Using External Storage">shared external storage</a>. This storage may be removable (such as an SD card) or internal (non-removable).
-Files saved to external storage are world-readable. The user can modify them when USB mass storage is enabled.
-You can use the following code snippets to persistently store sensitive information to external storage as the contents of the file <code>password.txt</code>.</p>
-<p>Example for Java:</p>
-<div class="highlight"><pre><span></span><code><span class="n">File</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">File</span><span class="w"> </span><span class="p">(</span><span class="n">Environment</span><span class="p">.</span><span class="na">getExternalFilesDir</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;password.txt&quot;</span><span class="p">);</span>
-<span class="n">String</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SecretPassword&quot;</span><span class="p">;</span>
-<span class="n">FileOutputStream</span><span class="w"> </span><span class="n">fos</span><span class="p">;</span>
-<span class="w">    </span><span class="n">fos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FileOutputStream</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
-<span class="w">    </span><span class="n">fos</span><span class="p">.</span><span class="na">write</span><span class="p">(</span><span class="n">password</span><span class="p">.</span><span class="na">getBytes</span><span class="p">());</span>
-<span class="w">    </span><span class="n">fos</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<p>Android devices support <a href="https://developer.android.com/training/data-storage#filesExternal" title="Using External Storage">shared external storage</a>. This storage may be removable (such as an SD card) or emulated (non-removable). A malicious app with proper permissions running on Android 10 or below can access data that you write to "external" <a href="https://developer.android.com/training/data-storage/app-specific">app-specific-directories</a>. The user can also modify these files when USB mass storage is enabled.</p>
+<p>The files stored in these directories are <a href="https://developer.android.com/training/data-storage/app-specific#external">removed when your app is uninstalled</a>.</p>
+<p>External storage must be used carefully as there are many risks associated with it. For example an attacker may be able to retrieve sensitive data or <a href="https://blog.checkpoint.com/2018/08/12/man-in-the-disk-a-new-attack-surface-for-android-apps/" title="Man in the disk">obtain arbitrary control of the application</a>.</p>
+<p><strong>Android Security Guidelines</strong>: Android recommends not storing sensitive data on external storage and to perform input validation on all data stored on external storage. See the <a href="https://developer.android.com/privacy-and-security/security-tips#external-storage" title="Android Security Guidelines">Android Security Guidelines</a>. Android also provides a <a href="https://developer.android.com/privacy-and-security/security-best-practices#external-storage" title="Store data in external storage based on use case">guide</a> on how to use external storage securely.</p>
+<h4 id="scoped-storage">Scoped Storage<a class="headerlink" href="#scoped-storage" title="Permanent link">&para;</a></h4>
+<p>To give users more control over their files and to limit file clutter, apps that target Android 10 (API level 29) and higher are given scoped access into external storage, or <a href="https://developer.android.com/training/data-storage#scoped-storage">scoped storage</a>, by default. When scoped storage is enabled, apps cannot access the app-specific directories that belong to other apps.</p>
+<p>The Android developers documentation provides a detailed guide highlighting common <a href="https://developer.android.com/training/data-storage/use-cases">storage use cases and best practices</a> differentiating between handling media and non-media files and considering scoped storage.</p>
+<p><strong>Opting out</strong>: Apps targeting Android 10 (API level 29) or lower can <a href="https://developer.android.com/training/data-storage/use-cases#opt-out-in-production-app">temporarily opt out of scoped storage</a> using <code>android:requestLegacyExternalStorage="true"</code> in their app manifest. Once the app targets Android 11 (API level 30), the system ignores the <code>requestLegacyExternalStorage</code> attribute when running on Android 11 devices.</p>
+<blockquote>
+<p><a href="https://developer.android.com/training/data-storage/shared/media#app-attribution">App attribution for media files (Android Developers)</a>:
+When <a href="https://developer.android.com/training/data-storage#scoped-storage">scoped storage</a> is enabled for an app that targets Android 10 or higher, the system attributes an app to each media file, which determines the files that your app can access when it hasn't requested any storage permissions. Each file can be attributed to only one app. Therefore, if your app creates a media file that's stored in the photos, videos, or audio files media collection, your app has access to the file.</p>
+<p>If the user uninstalls and reinstalls your app, however, you must request <a href="https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE">READ_EXTERNAL_STORAGE</a> to access the files that your app originally created. This permission request is required because the system considers the file to be attributed to the previously installed version of the app, rather than the newly installed one.</p>
+</blockquote>
+<p>For example, trying to access a file stored using the <code>MediaStore</code> API with a <code>content://</code> URI like <code>content://media/external_primary</code> would only work as long as the image <em>belongs</em> to the invoking app (due to <code>owner_package_name</code> attribute in the <code>MediaStore</code>). If the app calls a <code>content://</code> URI that does not belong to the app, it will fail with a <code>SecurityException</code>:</p>
+<div class="highlight"><pre><span></span><code>Cannot<span class="w"> </span>open<span class="w"> </span>content<span class="w"> </span>uri:<span class="w"> </span>content://media/external_primary/images/media/1000000041
+java.lang.SecurityException:<span class="w"> </span>org.owasp.mastestapp<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>access<span class="w"> </span>to<span class="w"> </span>content://media/external_primary/images/media/1000000041
 </code></pre></div>
-<p>Example for Kotlin:</p>
+<p>You can validate this by querying the MediaStore via adb, for example:</p>
+<ul>
+<li><code>adb shell content query --uri content://media/external_primary/images/media</code></li>
+<li><code>adb shell content query --uri content://media/external_primary/file</code></li>
+</ul>
+<p>To be able to access the content, the app must have the necessary permissions e.g., <code>READ_EXTERNAL_STORAGE</code> before Android 10 API level 29, <code>READ_MEDIA_IMAGES</code> or <code>MANAGE_EXTERNAL_STORAGE</code> from Android 10 API level 29 onwards.</p>
+<blockquote>
+<p><code>READ_EXTERNAL_STORAGE</code> is deprecated (and is not granted) when targeting Android 13 (API level 33) and above. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code> or <code>READ_MEDIA_AUDIO</code>.</p>
+<p>Scoped storage is enforced starting on Android 10 (API level 29) (or Android 11 if using <code>requestLegacyExternalStorage</code>). In particular, <code>WRITE_EXTERNAL_STORAGE</code> will no longer provide write access to all files; it will provide the equivalent of <code>READ_EXTERNAL_STORAGE</code> instead.</p>
+<p>As of Android 13 (API level 33), if you need to query or interact with MediaStore or media files on the shared storage, you should be using instead one or more new storage permissions: <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code> or <code>READ_MEDIA_AUDIO</code>.</p>
+</blockquote>
+<p>After declaring the permission in the manifest you can grant it with adb:</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>pm<span class="w"> </span>grant<span class="w"> </span>org.owasp.mastestapp<span class="w"> </span>android.permission.READ_MEDIA_IMAGES
+</code></pre></div>
+<p>You can revoke the permission with:</p>
+<div class="highlight"><pre><span></span><code>adb<span class="w"> </span>shell<span class="w"> </span>pm<span class="w"> </span>revoke<span class="w"> </span>org.owasp.mastestapp<span class="w"> </span>android.permission.READ_MEDIA_IMAGES
+</code></pre></div>
+<h4 id="external-storage-apis">External Storage APIs<a class="headerlink" href="#external-storage-apis" title="Permanent link">&para;</a></h4>
+<p>There are APIs such as <a href="https://developer.android.com/reference/kotlin/android/os/Environment#getExternalStoragePublicDirectory(kotlin.String)"><code>getExternalStoragePublicDirectory</code></a> that return paths to a shared location that other apps can access. An app may obtain a path to an "external" location and write sensitive data to it. This location is considered "Shared Storage Requiring No User Interaction", which means that a third-party app with proper permissions can read this sensitive data.</p>
+<p>For example, the following Kotlin snippet stores sensitive information in clear text to a file <code>password.txt</code> residing on external storage.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SecretPassword&quot;</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">context</span><span class="p">.</span><span class="na">getExternalFilesDir</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;password.txt&quot;</span><span class="p">)</span>
 <span class="n">file</span><span class="p">.</span><span class="na">appendText</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
 </code></pre></div>
-<p>The file will be created and the data will be stored in a clear text file in external storage once the activity has been called.</p>
-<p>It's also worth knowing that files stored outside the application folder (<code>data/data/&lt;package-name&gt;/</code>) will not be deleted when the user uninstalls the application.
-Finally, it's worth noting that the external storage can be used by an attacker to allow for arbitrary control of the application in some cases. For more information: <a href="https://blog.checkpoint.com/2018/08/12/man-in-the-disk-a-new-attack-surface-for-android-apps/" title="Man in the disk">see the blog post from Checkpoint</a>.</p>
+<h4 id="mediastore-api">MediaStore API<a class="headerlink" href="#mediastore-api" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://developer.android.com/training/data-storage/shared/media"><code>MediaStore</code> API</a> provides a way for apps to interact with two types of files stored on the device:</p>
+<ul>
+<li>media files including images (<code>MediaStore.Images</code>), videos (<code>MediaStore.Video</code>), audio (<code>MediaStore.Audio</code>) and downloads (<code>MediaStore.Downloads</code>), and</li>
+<li>non-media files (e.g. text, HTML, PDF, etc.) stored in the <code>MediaStore.Files</code> collection.</li>
+</ul>
+<p>Using this API requires a <code>ContentResolver</code> object retrieved from the app's Context. See an example in the <a href="https://developer.android.com/training/data-storage/shared/media#media_store">Android Developers documentation</a>.</p>
+<p><strong>Apps running on Android 9 (API level 28) or lower:</strong></p>
+<ul>
+<li>They can access the app-specific files that belong to other apps if they have opted out of scoped storage and requested the <code>READ_EXTERNAL_STORAGE</code> permission.</li>
+<li>To modify the files, the app must also request the <code>WRITE_EXTERNAL_STORAGE</code> permission.</li>
+</ul>
+<p><strong>Apps running on Android 10 (API level 29) or higher:</strong></p>
+<ul>
+<li>
+<p><strong>Accessing own media files:</strong></p>
+<ul>
+<li>Apps can always <a href="https://developer.android.com/training/data-storage/shared/media#storage-permission-not-always-needed">access their own media files</a> stored using the <code>MediaStore</code> API without needing any storage-related permissions. This includes files in the app-specific directories within external storage (scoped storage) and files in the MediaStore that the app created.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accessing other apps' media files:</strong></p>
+<ul>
+<li>Apps require certain permissions and APIs to <a href="https://developer.android.com/training/data-storage/shared/media#access-other-apps-files">access media files that belong to other apps</a>.</li>
+<li>If scoped storage is enabled, apps can't access the app-specific media files that belong to other apps. However, if scoped storage is disabled, apps can access the app-specific media files that belong to other apps using the <code>MediaStore.Files</code> query.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accessing downloads (<code>MediaStore.Downloads</code> collection):</strong></p>
+<ul>
+<li>To access downloads from other apps, the app must use the <a href="https://developer.android.com/training/data-storage/shared/documents-files">Storage Access Framework</a>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="manifest-permissions">Manifest Permissions<a class="headerlink" href="#manifest-permissions" title="Permanent link">&para;</a></h4>
+<p>Android defines the following <a href="https://developer.android.com/training/data-storage#permissions">permissions for accessing external storage</a>: <a href="https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"><code>READ_EXTERNAL_STORAGE</code></a>, <a href="https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE"><code>WRITE_EXTERNAL_STORAGE</code></a> and <a href="https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE"><code>MANAGE_EXTERNAL_STORAGE</code></a>.</p>
+<p>An app must declare in the Android Manifest file an intention to write to shared locations. Below you can find a list of such manifest permissions:</p>
+<ul>
+<li>
+<p><a href="https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE"><code>READ_EXTERNAL_STORAGE</code></a>: allows an app to read from external storage.</p>
+<ul>
+<li><strong>Before Android 4.4 (API level 19)</strong>, this permission is not enforced and all apps have access to read the entire external storage (including files from other apps).</li>
+<li><strong>Starting on Android 4.4 (API level 19)</strong>, apps don't need to request this permission to access their own app-specific directories within external storage.</li>
+<li><strong>Starting on Android 10 (API level 29)</strong>, <a href="https://developer.android.com/training/data-storage#scoped-storage">scoped storage</a> applies by default:<ul>
+<li>Apps <strong>cannot read the app-specific directories that belong to other apps</strong> (which was possible before when having <code>READ_EXTERNAL_STORAGE</code> granted).</li>
+<li>Apps don't need to have this permission to read files from their own app-specific directories within external storage (scoped storage), or their own files in the MediaStore.</li>
+</ul>
+</li>
+<li><strong>Starting on Android 13 (API level 33)</strong>, this permission <strong>has no effect</strong>. If needing to access media files from other apps, apps must request one or more of these permissions: <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, or <code>READ_MEDIA_AUDIO</code>.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.android.com/reference/android/Manifest.permission#WRITE_EXTERNAL_STORAGE"><code>WRITE_EXTERNAL_STORAGE</code></a>: allows an app to write a file to the "external storage", regardless of the actual storage origin (external disk or internally emulated by the system).  </p>
+<ul>
+<li><strong>Starting on Android 4.4 (API level 19)</strong>, apps don't need to request this permission to access their own app-specific directories within external storage.</li>
+<li><strong>Starting on Android 10 (API level 29)</strong>, <a href="https://developer.android.com/training/data-storage#scoped-storage">scoped storage</a> applies by default:<ul>
+<li>Apps <strong>cannot write to the app-specific directories that belong to other apps</strong> (which was possible before when having <code>WRITE_EXTERNAL_STORAGE</code> granted).</li>
+<li>Apps don't need this permission to write files in their own app-specific directories within external storage.</li>
+</ul>
+</li>
+<li><strong>Starting on Android 11 (API level 30)</strong>, this permission is <strong>deprecated and has no effect</strong>, but can be preserved with <a href="https://developer.android.com/reference/android/R.attr#requestLegacyExternalStorage">requestLegacyExternalStorage</a> and <a href="https://developer.android.com/reference/android/R.attr#preserveLegacyExternalStorage">preserveLegacyExternalStorage</a>.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.android.com/reference/android/Manifest.permission#MANAGE_EXTERNAL_STORAGE"><code>MANAGE_EXTERNAL_STORAGE</code></a>: Some apps require <a href="https://developer.android.com/training/data-storage/manage-all-files">broad access to all files</a>.</p>
+<ul>
+<li>This permission only applies to apps targeting Android 11.0 (API level 30) or higher.</li>
+<li>Usage of this permission is <strong>restricted by Google Play</strong> unless the app satisfies <a href="https://support.google.com/googleplay/android-developer/answer/10467955">certain requirements</a> and requires <strong>special app access</strong> called <a href="https://developer.android.com/preview/privacy/storage#all-files-access">"All files access"</a>.</li>
+<li>Scoped storage doesn't affect the app's ability to access app-specific directories when having this permission.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_IMAGES"><code>READ_MEDIA_IMAGES</code></a>, <a href="https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_VIDEO"><code>READ_MEDIA_VIDEO</code></a> and <a href="https://developer.android.com/reference/android/Manifest.permission#READ_MEDIA_AUDIO"><code>READ_MEDIA_AUDIO</code></a>: allow an app to read media files from the <code>MediaStore</code> collection.</p>
+<ul>
+<li><strong>Starting on Android 13 (API level 33)</strong>, since <code>READ_EXTERNAL_STORAGE</code> <strong>has no effect</strong>, these permissions are required to access media files from the <code>MediaStore.Images</code>, <code>MediaStore.Video</code>, and <code>MediaStore.Audio</code> collections respectively.</li>
+</ul>
+</li>
+</ul>
 <h3 id="keystore">KeyStore<a class="headerlink" href="#keystore" title="Permanent link">&para;</a></h3>
 <p>The <a href="https://www.androidauthority.com/use-android-keystore-store-passwords-sensitive-information-623779/" title="Use Android KeyStore">Android KeyStore</a> supports relatively secure credential storage. As of Android 4.3 (API level 18), it provides public APIs for storing and using app-private keys. An app can use a public key to create a new private/public key pair for encrypting application secrets, and it can decrypt the secrets with the private key.</p>
 <p>You can protect keys stored in the Android KeyStore with user authentication in a confirm credential flow. The user's lock screen credentials (pattern, PIN, password, or fingerprint) are used for authentication.</p>
