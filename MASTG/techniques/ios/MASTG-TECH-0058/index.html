@@ -22114,7 +22114,7 @@ iGoat-Swift
 <li><code>_CodeSignature/</code> contains a plist file with a signature over all files in the bundle.</li>
 <li><code>Frameworks/</code> contains the app native libraries as .dylib or .framework files.</li>
 <li><code>PlugIns/</code> may contain app extensions as .appex files (not present in the example).</li>
-<li>iGoat-Swift is the app binary containing the app’s code. Its name is the same as the bundle's name minus the .app extension.</li>
+<li>iGoat-Swift is the app binary containing the app's code. Its name is the same as the bundle's name minus the .app extension.</li>
 <li>Various resources such as images/icons, <code>*.nib</code> files (storing the user interfaces of iOS app), localized content (<code>&lt;language&gt;.lproj</code>), text files, audio files, etc.</li>
 </ul>
 <h2 id="the-infoplist-file">The Info.plist File<a class="headerlink" href="#the-infoplist-file" title="Permanent link">&para;</a></h2>
@@ -22175,7 +22175,7 @@ Regular<span class="w">           </span><span class="m">420</span><span class="
 ...
 </code></pre></div>
 <p>Please note that this might not be the complete list of native code elements being used by the app as some can be part of the source code, meaning that they'll be compiled in the app binary and therefore cannot be found as standalone libraries or Frameworks in the <code>Frameworks</code> folder.</p>
-<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to  for more information about how to reverse engineer Frameworks.</p>
+<p>For now this is all information you can get about the Frameworks unless you start reverse engineering them. Refer to for more information about how to reverse engineer Frameworks.</p>
 <h2 id="other-app-resources">Other App Resources<a class="headerlink" href="#other-app-resources" title="Permanent link">&para;</a></h2>
 <p>It is normally worth taking a look at the rest of the resources and files that you may find in the Application Bundle (.app) inside the IPA as some times they contain additional goodies like encrypted databases, certificates, etc.</p>
 <p><img src="../../../../../assets/Images/Chapters/0x06b/grapefruit_db_view.png" width="100%" /></p>

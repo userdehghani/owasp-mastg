@@ -22134,7 +22134,7 @@
 <h3 id="check-for-low-level-networking-api-usage">Check for Low-Level Networking API Usage<a class="headerlink" href="#check-for-low-level-networking-api-usage" title="Permanent link">&para;</a></h3>
 <p>Identify the network APIs used by the app and see if it uses any low-level networking APIs.</p>
 <blockquote>
-<p><strong>Apple Recommendation: Prefer High-Level Frameworks in Your App</strong>: "ATS doesn’t apply to calls your app makes to lower-level networking interfaces like the Network framework or CFNetwork. In these cases, you take responsibility for ensuring the security of the connection. You can construct a secure connection this way, but mistakes are both easy to make and costly. It’s typically safest to rely on the URL Loading System instead" (see <a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections">source</a>).</p>
+<p><strong>Apple Recommendation: Prefer High-Level Frameworks in Your App</strong>: "ATS doesn't apply to calls your app makes to lower-level networking interfaces like the Network framework or CFNetwork. In these cases, you take responsibility for ensuring the security of the connection. You can construct a secure connection this way, but mistakes are both easy to make and costly. It's typically safest to rely on the URL Loading System instead" (see <a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections">source</a>).</p>
 </blockquote>
 <p>If the app uses any low-level APIs such as <a href="https://developer.apple.com/documentation/network"><code>Network</code></a> or <a href="https://developer.apple.com/documentation/cfnetwork"><code>CFNetwork</code></a>, you should carefully investigate if they are being used securely. For apps using cross-platform frameworks (e.g. Flutter, Xamarin, ...) and third party frameworks (e.g. Alamofire) you should analyze if they're being configured and used securely according to their best practices.</p>
 <p>Make sure that the app:</p>
@@ -22157,7 +22157,7 @@
 </li>
 </ul>
 <blockquote>
-<p><strong>Apple warns:</strong> Disabling ATS means that unsecured HTTP connections are allowed. HTTPS connections are also allowed, and are still subject to default server trust evaluation. However, extended security checks—like requiring a minimum Transport Layer Security (TLS) protocol version—are disabled. Without ATS, you’re also free to loosen the default server trust requirements, as described in <a href="https://developer.apple.com/documentation/foundation/url_loading_system/handling_an_authentication_challenge/performing_manual_server_trust_authentication">"Performing Manual Server Trust Authentication"</a>.</p>
+<p><strong>Apple warns:</strong> Disabling ATS means that unsecured HTTP connections are allowed. HTTPS connections are also allowed, and are still subject to default server trust evaluation. However, extended security checks—like requiring a minimum Transport Layer Security (TLS) protocol version—are disabled. Without ATS, you're also free to loosen the default server trust requirements, as described in <a href="https://developer.apple.com/documentation/foundation/url_loading_system/handling_an_authentication_challenge/performing_manual_server_trust_authentication">"Performing Manual Server Trust Authentication"</a>.</p>
 </blockquote>
 <p>The following snippet shows a <strong>vulnerable example</strong> of an app disabling ATS restrictions globally.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;key&gt;</span>NSAppTransportSecurity<span class="nt">&lt;/key&gt;</span>
@@ -22167,7 +22167,7 @@
 <span class="nt">&lt;/dict&gt;</span>
 </code></pre></div>
 <p>ATS should be examined taking the application's context into consideration. The application may <em>have to</em> define ATS exceptions to fulfill its intended purpose. For example, the <a href="https://github.com/mozilla-mobile/firefox-ios/blob/v97.0/Client/Info.plist#L82">Firefox iOS application has ATS disabled globally</a>. This exception is acceptable because otherwise the application would not be able to connect to any HTTP website that does not have all the ATS requirements. In some cases, apps might disable ATS globally but enable it for certain domains to e.g. securely load metadata or still allow secure login.</p>
-<p>ATS should include a <a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections#3138036">justification string</a> for this (e.g. "The app must connect to a server managed by another entity that doesn’t support secure connections.").</p>
+<p>ATS should include a <a href="https://developer.apple.com/documentation/security/preventing_insecure_network_connections#3138036">justification string</a> for this (e.g. "The app must connect to a server managed by another entity that doesn't support secure connections.").</p>
 <h2 id="dynamic-analysis">Dynamic Analysis<a class="headerlink" href="#dynamic-analysis" title="Permanent link">&para;</a></h2>
 <p>Intercept the tested app's incoming and outgoing network traffic and make sure that this traffic is encrypted. You can intercept network traffic in any of the following ways:</p>
 <ul>

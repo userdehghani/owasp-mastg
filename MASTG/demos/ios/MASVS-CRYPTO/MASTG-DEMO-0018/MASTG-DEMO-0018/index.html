@@ -22605,11 +22605,11 @@
 <span class="cm">*/</span>
 <span class="k">enum</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">kCCAlgorithmAES128</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">    </span><span class="n">kCCAlgorithmDES</span><span class="p">,</span><span class="w">        </span>
-<span class="w">    </span><span class="n">kCCAlgorithm3DES</span><span class="p">,</span><span class="w">        </span>
-<span class="w">    </span><span class="n">kCCAlgorithmCAST</span><span class="p">,</span><span class="w">        </span>
+<span class="w">    </span><span class="n">kCCAlgorithmDES</span><span class="p">,</span>
+<span class="w">    </span><span class="n">kCCAlgorithm3DES</span><span class="p">,</span>
+<span class="w">    </span><span class="n">kCCAlgorithmCAST</span><span class="p">,</span>
 <span class="w">    </span><span class="n">kCCAlgorithmRC4</span><span class="p">,</span>
-<span class="w">    </span><span class="n">kCCAlgorithmRC2</span><span class="w">        </span>
+<span class="w">    </span><span class="n">kCCAlgorithmRC2</span>
 <span class="p">};</span>
 <span class="k">typedef</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">CCAlgorithm</span><span class="p">;</span>
 
@@ -22621,8 +22621,8 @@
 <span class="cm">    @constant    kCCDecrypt    Symmetric decryption.</span>
 <span class="cm">*/</span>
 <span class="k">enum</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">kCCEncrypt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">    </span>
-<span class="w">    </span><span class="n">kCCDecrypt</span><span class="p">,</span><span class="w">        </span>
+<span class="w">    </span><span class="n">kCCEncrypt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="n">kCCDecrypt</span><span class="p">,</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>With this information we can now inspect the disassembled code and we'll see that the 3DES algorithm (<code>kCCAlgorithm3DES</code>) can be found by its numeric value <code>2</code> in the second argument of the <code>CCCrypt</code> function (<code>w1</code>). The <code>CCCrypt</code> function is called with a padding option of PKCS7, no initialization vector, and a key of 24 bytes:</p>

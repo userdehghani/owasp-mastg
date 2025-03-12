@@ -22115,16 +22115,16 @@
 <h2 id="mode-of-introduction">Mode of Introduction<a class="headerlink" href="#mode-of-introduction" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Use of Deprecated Algorithms</strong> : Relying on outdated or weak encryption algorithms can allow threat actors to attack the cipher text, key or exploit known vulnerabilities in the algorithm, for example through brute force attacks.</li>
-<li><strong>Insecure Modes of Operation</strong>:  Using modes that are considered deprecated increase the attack surface of encrypted information. For example the use of AES/ECB is deprecated as it divides the plaintext into blocks and encrypts each block separately using the same key. This makes the cipher text vulnerable to "known plaintext attacks" and leaks information about the structure of the original plaintext.</li>
+<li><strong>Insecure Modes of Operation</strong>: Using modes that are considered deprecated increase the attack surface of encrypted information. For example the use of AES/ECB is deprecated as it divides the plaintext into blocks and encrypts each block separately using the same key. This makes the cipher text vulnerable to "known plaintext attacks" and leaks information about the structure of the original plaintext.</li>
 <li><strong>Predictable Initialization Vectors (IVs)</strong>: If IVs are not random or unique, they can be exploited in attacks like ciphertext injection or pattern recognition. This compromises the confidentiality of encrypted data, especially in modes like CBC (Cipher Block Chaining).</li>
 <li><strong>Weak Keys</strong>: Short or easily guessable keys compromise encryption strength. The use of small key sizes (e.g., 56-bit keys in DES) can make the encryption susceptible to brute-force attacks. Best practices recommend keys of at least 256 bits for strong encryption.</li>
 <li><strong>Misuse of Non-Cryptographic Operations</strong>: Relying on techniques such as XOR, Base64 encoding, or simple obfuscation methods for security purposes. These methods provide no actual encryption and can be easily reversed or decoded, exposing sensitive data.</li>
 </ul>
 <h2 id="mitigations">Mitigations<a class="headerlink" href="#mitigations" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Use Secure Encryption Modes</strong>: Choose secure modes such as <code>AES/GCM/NoPadding</code> and avoid insecure modes such as ECB.  </li>
+<li><strong>Use Secure Encryption Modes</strong>: Choose secure modes such as <code>AES/GCM/NoPadding</code> and avoid insecure modes such as ECB.</li>
 <li><strong>Ensure Proper Initialization Vector Management</strong>: Generate IVs using cryptographically secure random number generators and ensure they are unique for every operation.</li>
-<li><strong>Use Strong Key Sizes</strong>: Enforce key lengths of at least 256 bits for AES and avoid using small or weak keys such as 56-bit DES keys.  </li>
+<li><strong>Use Strong Key Sizes</strong>: Enforce key lengths of at least 256 bits for AES and avoid using small or weak keys such as 56-bit DES keys.</li>
 <li><strong>Rely on Proper Cryptographic Libraries</strong>: Avoid using XOR, Base64 encoding, or obfuscation as substitutes for encryption and rely on well-vetted cryptographic libraries.</li>
 </ul>
 <h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">&para;</a></h2>

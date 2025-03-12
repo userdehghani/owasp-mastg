@@ -22107,7 +22107,7 @@
 <li>Navigate to the screen of the app that you want to analyse.</li>
 <li>Close the app to stop Frida.</li>
 </ol>
-<p>The Frida script should log all file interactions by hooking into the relevant APIs such as <code>getExternalStorageDirectory</code>, <code>getExternalStoragePublicDirectory</code>, <code>getExternalFilesDir</code> or  <code>FileOutPutStream</code>. You could also use <code>open</code> as a catch-all for file interactions. However, this won't catch all file interactions, such as those that use the <code>MediaStore</code> API and should be done with additional filtering as it can generate a lot of noise.</p>
+<p>The Frida script should log all file interactions by hooking into the relevant APIs such as <code>getExternalStorageDirectory</code>, <code>getExternalStoragePublicDirectory</code>, <code>getExternalFilesDir</code> or <code>FileOutPutStream</code>. You could also use <code>open</code> as a catch-all for file interactions. However, this won't catch all file interactions, such as those that use the <code>MediaStore</code> API and should be done with additional filtering as it can generate a lot of noise.</p>
 <h2 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h2>
 <p>The output should contain a list of files that the app wrote to the external storage during execution and, if possible, the APIs used to write them.</p>
 <h2 id="evaluation">Evaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h2>

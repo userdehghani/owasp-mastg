@@ -22060,7 +22060,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>This method iterates through a list of directories and returns <code>true</code> (device rooted) if it finds the <code>su</code> binary in any of them. Checks like this are easy to deactivate all you have to do is replace the code with something that returns "false". Method hooking with an Xposed module is one way to do this (see "Android Basic Security Testing" for more details on Xposed installation and basics).</p>
-<p>The method  <code>XposedHelpers.findAndHookMethod</code> allows you to override existing class methods. By inspecting the decompiled source code, you can find out that the method performing the check is <code>c</code>. This method is located in the class <code>com.example.a.b</code>. The following is an Xposed module that overrides the function so that it always returns false:</p>
+<p>The method <code>XposedHelpers.findAndHookMethod</code> allows you to override existing class methods. By inspecting the decompiled source code, you can find out that the method performing the check is <code>c</code>. This method is located in the class <code>com.example.a.b</code>. The following is an Xposed module that overrides the function so that it always returns false:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">com.awesome.pentestcompany</span><span class="p">;</span>
 
 <span class="kn">import static</span><span class="w"> </span><span class="nn">de.robv.android.xposed.XposedHelpers.findAndHookMethod</span><span class="p">;</span>

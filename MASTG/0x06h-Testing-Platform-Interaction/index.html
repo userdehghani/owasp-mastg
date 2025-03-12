@@ -22908,9 +22908,9 @@ Note that <strong>Protocol Buffers do not provide any protection for confidentia
 <h4 id="entitlements">Entitlements<a class="headerlink" href="#entitlements" title="Permanent link">&para;</a></h4>
 <p>According to <a href="https://www.apple.com/business/site/docs/iOS_Security_Guide.pdf" title="iOS Security Guide">Apple's iOS Security Guide</a>:</p>
 <blockquote>
-<p>Entitlements are key value pairs that are signed in to an app and allow authentication beyond runtime factors, like UNIX user ID. Since entitlements are digitally signed, they can’t be changed. Entitlements are used extensively by system apps and daemons to perform specific privileged operations that would otherwise require the process to run as root. This greatly reduces the potential for privilege escalation by a compromised system app or daemon.</p>
+<p>Entitlements are key value pairs that are signed in to an app and allow authentication beyond runtime factors, like UNIX user ID. Since entitlements are digitally signed, they can't be changed. Entitlements are used extensively by system apps and daemons to perform specific privileged operations that would otherwise require the process to run as root. This greatly reduces the potential for privilege escalation by a compromised system app or daemon.</p>
 </blockquote>
-<p>Many entitlements can be set using the "Summary" tab of the Xcode target editor. Other entitlements require editing a target’s entitlements property list file or are inherited from the iOS provisioning profile used to run the app.</p>
+<p>Many entitlements can be set using the "Summary" tab of the Xcode target editor. Other entitlements require editing a target's entitlements property list file or are inherited from the iOS provisioning profile used to run the app.</p>
 <p><a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-SOURCES" title="Entitlement Sources">Entitlement Sources</a>:</p>
 <ol>
 <li>Entitlements embedded in a provisioning profile that is used to code sign the app, which are composed of:</li>
@@ -22926,7 +22926,7 @@ Note that <strong>Protocol Buffers do not provide any protection for confidentia
 </ol>
 <p>The <a href="https://developer.apple.com/library/archive/technotes/tn2415/_index.html#//apple_ref/doc/uid/DTS40016427-CH1-APPENTITLEMENTS" title="Inspect the entitlements of a built app">Apple Developer Documentation</a> also explains:</p>
 <ul>
-<li>During code signing, the entitlements corresponding to the app’s enabled Capabilities/Services are transferred to the app's signature from the provisioning profile Xcode chose to sign the app.</li>
+<li>During code signing, the entitlements corresponding to the app's enabled Capabilities/Services are transferred to the app's signature from the provisioning profile Xcode chose to sign the app.</li>
 <li>The provisioning profile is embedded into the app bundle during the build (<code>embedded.mobileprovision</code>).</li>
 <li>Entitlements from the "Code Signing Entitlements" section in Xcode's "Build Settings" tab are transferred to the app's signature.</li>
 </ul>
@@ -22978,7 +22978,7 @@ This entitlement is also required if an app extension requires to <a href="https
 <p>Custom URL schemes <a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1" title="Using URL Schemes to Communicate with Apps">allow apps to communicate via a custom protocol</a>. An app must declare support for the schemes and handle incoming URLs that use those schemes.</p>
 <p>Apple warns about the improper use of custom URL schemes in the <a href="https://developer.apple.com/documentation/uikit/core_app/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app" title="Defining a Custom URL Scheme for Your App">Apple Developer Documentation</a>:</p>
 <blockquote>
-<p>URL schemes offer a potential attack vector into your app, so make sure to validate all URL parameters and discard any malformed URLs. In addition, limit the available actions to those that do not risk the user’s data. For example, do not allow other apps to directly delete content or access sensitive information about the user. When testing your URL-handling code, make sure your test cases include improperly formatted URLs.</p>
+<p>URL schemes offer a potential attack vector into your app, so make sure to validate all URL parameters and discard any malformed URLs. In addition, limit the available actions to those that do not risk the user's data. For example, do not allow other apps to directly delete content or access sensitive information about the user. When testing your URL-handling code, make sure your test cases include improperly formatted URLs.</p>
 </blockquote>
 <p>They also suggest using universal links instead, if the purpose is to implement deep linking:</p>
 <blockquote>
@@ -22991,7 +22991,7 @@ This entitlement is also required if an app extension requires to <a href="https
 <li>handling the URLs that the app receives.</li>
 </ul>
 <p>Security issues arise when an app processes calls to its URL scheme without properly validating the URL and its parameters and when users aren't prompted for confirmation before triggering an important action.</p>
-<p>One example is the following <a href="https://www.dhanjani.com/blog/2010/11/insecure-handling-of-url-schemes-in-apples-ios.html" title="Insecure Handling of URL Schemes in Apple’s iOS">bug in the Skype Mobile app</a>, discovered in 2010: The Skype app registered the <code>skype://</code> protocol handler, which allowed other apps to trigger calls to other Skype users and phone numbers. Unfortunately, Skype didn't ask users for permission before placing the calls, so any app could call arbitrary numbers without the user's knowledge. Attackers exploited this vulnerability by putting an invisible <code>&lt;iframe src="skype://xxx?call"&gt;&lt;/iframe&gt;</code> (where <code>xxx</code> was replaced by a premium number), so any Skype user who inadvertently visited a malicious website called the premium number.</p>
+<p>One example is the following <a href="https://www.dhanjani.com/blog/2010/11/insecure-handling-of-url-schemes-in-apples-ios.html" title="Insecure Handling of URL Schemes in Apple's iOS">bug in the Skype Mobile app</a>, discovered in 2010: The Skype app registered the <code>skype://</code> protocol handler, which allowed other apps to trigger calls to other Skype users and phone numbers. Unfortunately, Skype didn't ask users for permission before placing the calls, so any app could call arbitrary numbers without the user's knowledge. Attackers exploited this vulnerability by putting an invisible <code>&lt;iframe src="skype://xxx?call"&gt;&lt;/iframe&gt;</code> (where <code>xxx</code> was replaced by a premium number), so any Skype user who inadvertently visited a malicious website called the premium number.</p>
 <p>As a developer, you should carefully validate any URL before calling it. You can allow only certain applications which may be opened via the registered protocol handler. Prompting users to confirm the URL-invoked action is another helpful control.</p>
 <p>All URLs are passed to the app delegate, either at launch time or while the app is running or in the background. To handle incoming URLs, the delegate should implement methods to:</p>
 <ul>
@@ -23006,7 +23006,7 @@ This entitlement is also required if an app extension requires to <a href="https
 <li>sending the URL requests.</li>
 </ul>
 <h4 id="universal-links">Universal Links<a class="headerlink" href="#universal-links" title="Permanent link">&para;</a></h4>
-<p>Universal links are the iOS equivalent to Android App Links (aka. Digital Asset Links) and are used for deep linking. When tapping a universal link (to the app's website), the user will seamlessly be redirected to the corresponding installed app without going through Safari. If the app isn’t installed, the link will open in Safari.</p>
+<p>Universal links are the iOS equivalent to Android App Links (aka. Digital Asset Links) and are used for deep linking. When tapping a universal link (to the app's website), the user will seamlessly be redirected to the corresponding installed app without going through Safari. If the app isn't installed, the link will open in Safari.</p>
 <p>Universal links are standard web links (HTTP/HTTPS) and are not to be confused with custom URL schemes, which originally were also used for deep linking.</p>
 <p>For example, the Telegram app supports both custom URL schemes and universal links:</p>
 <ul>
@@ -23015,7 +23015,7 @@ This entitlement is also required if an app extension requires to <a href="https
 </ul>
 <p>Both result in the same action, the user will be redirected to the specified chat in Telegram ("fridadotre" in this case). However, universal links give several key benefits that are not applicable when using custom URL schemes and are the recommended way to implement deep linking, according to the <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/AppSearch/UniversalLinks.html" title="Universal Links">Apple Developer Documentation</a>. Specifically, universal links are:</p>
 <ul>
-<li><strong>Unique</strong>: Unlike custom URL schemes, universal links can’t be claimed by other apps, because they use standard HTTP or HTTPS links to the app's website. They were introduced as a way to <em>prevent</em> URL scheme hijacking attacks (an app installed after the original app may declare the same scheme and the system might target all new requests to the last installed app).</li>
+<li><strong>Unique</strong>: Unlike custom URL schemes, universal links can't be claimed by other apps, because they use standard HTTP or HTTPS links to the app's website. They were introduced as a way to <em>prevent</em> URL scheme hijacking attacks (an app installed after the original app may declare the same scheme and the system might target all new requests to the last installed app).</li>
 <li><strong>Secure</strong>: When users install the app, iOS downloads and checks a file (the Apple App Site Association or AASA) that was uploaded to the web server to make sure that the website allows the app to open URLs on its behalf. Only the legitimate owners of the URL can upload this file, so the association of their website with the app is secure.</li>
 <li><strong>Flexible</strong>: Universal links work even when the app is not installed. Tapping a link to the website would open the content in Safari, as users expect.</li>
 <li><strong>Simple</strong>: One URL works for both the website and the app.</li>
@@ -23037,7 +23037,7 @@ This entitlement is also required if an app extension requires to <a href="https
 </ul>
 <p>A full list can be found in <a href="https://developer.apple.com/documentation/uikit/uiactivity/activitytype" title="UIActivity ActivityType">UIActivity.ActivityType</a>. If not considered appropriate for the app, the developers have the possibility to exclude some of these sharing mechanisms.</p>
 <h4 id="app-extensions">App extensions<a class="headerlink" href="#app-extensions" title="Permanent link">&para;</a></h4>
-<p>Together with iOS 8, Apple introduced App Extensions. According to <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1" title="App Extensions Increase Your Impact">Apple App Extension Programming Guide</a>, app extensions let apps offer custom functionality and content to users while they’re interacting with other apps or the system. In order to do this, they implement specific, well scoped tasks like, for example, define what happens after the user clicks on the "Share" button and selects some app or action, provide the content for a Today widget or enable a custom keyboard.</p>
+<p>Together with iOS 8, Apple introduced App Extensions. According to <a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1" title="App Extensions Increase Your Impact">Apple App Extension Programming Guide</a>, app extensions let apps offer custom functionality and content to users while they're interacting with other apps or the system. In order to do this, they implement specific, well scoped tasks like, for example, define what happens after the user clicks on the "Share" button and selects some app or action, provide the content for a Today widget or enable a custom keyboard.</p>
 <p>Depending on the task, the app extension will have a particular type (and only one), the so-called <em>extension points</em>. Some notable ones are:</p>
 <ul>
 <li>Custom Keyboard: replaces the iOS system keyboard with a custom keyboard for use in all apps.</li>
@@ -23056,9 +23056,9 @@ This entitlement is also required if an app extension requires to <a href="https
 <h5 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h5>
 <p>From the security point of view it is important to note that:</p>
 <ul>
-<li>An app extension does never communicate directly with its containing app (typically, it isn’t even running while the contained app extension is running).</li>
+<li>An app extension does never communicate directly with its containing app (typically, it isn't even running while the contained app extension is running).</li>
 <li>An app extension and the host app communicate via inter-process communication.</li>
-<li>An app extension’s containing app and the host app don’t communicate at all.</li>
+<li>An app extension's containing app and the host app don't communicate at all.</li>
 <li>A Today widget (and no other app extension type) can ask the system to open its containing app by calling the <code>openURL:completionHandler:</code> method of the <code>NSExtensionContext</code> class.</li>
 <li>Any app extension and its containing app can access shared data in a privately defined shared container.</li>
 </ul>

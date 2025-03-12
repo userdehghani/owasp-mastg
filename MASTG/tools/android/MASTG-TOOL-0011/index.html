@@ -21959,14 +21959,14 @@
 
   <h1>MASTG-TOOL-0011: Apktool</h1>
 
-<p><a href="https://github.com/iBotPeaches/Apktool">Apktool</a> is used to unpack Android app packages (APKs). Simply unzipping APKs with the standard <code>unzip</code> utility leaves some files unreadable. <code>AndroidManifest.xml</code> is encoded into binary XML format which isn’t readable with a text editor. Also, the app resources are still packaged into a single archive file.</p>
-<p>When run with default command line flags, apktool automatically decodes the Android Manifest file to text-based XML format and extracts the file resources (it also disassembles the .DEX files to smali code - a feature that we’ll revisit later in this book).</p>
+<p><a href="https://github.com/iBotPeaches/Apktool">Apktool</a> is used to unpack Android app packages (APKs). Simply unzipping APKs with the standard <code>unzip</code> utility leaves some files unreadable. <code>AndroidManifest.xml</code> is encoded into binary XML format which isn't readable with a text editor. Also, the app resources are still packaged into a single archive file.</p>
+<p>When run with default command line flags, apktool automatically decodes the Android Manifest file to text-based XML format and extracts the file resources (it also disassembles the .DEX files to smali code - a feature that we'll revisit later in this book).</p>
 <p>Among the unpacked files you can usually find (after running <code>apktool d base.apk</code>):</p>
 <ul>
 <li>AndroidManifest.xml: The decoded Android Manifest file, which can be opened and edited in a text editor.</li>
 <li>apktool.yml: file containing information about the output of apktool</li>
 <li>original: folder containing the MANIFEST.MF file, which contains information about the files contained in the JAR file</li>
-<li>res: directory containing the app’s resources</li>
+<li>res: directory containing the app's resources</li>
 <li>smali: directory containing the disassembled Dalvik bytecode.</li>
 </ul>
 <p>You can also use apktool to repackage decoded resources back to binary APK/JAR. See the techniques <em><a href="../../../techniques/android/MASTG-TECH-0007/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Exploring the App Package</a></em> and <em><a href="../../../techniques/android/MASTG-TECH-0039/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Repackaging &amp; Re-Signing</a></em> for more information and practical examples.</p>
