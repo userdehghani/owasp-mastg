@@ -457,7 +457,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../news" class="md-tabs__link">
+        <a href="../../../../../news/" class="md-tabs__link">
           
   
     
@@ -21645,6 +21645,8 @@
     
       
         
+          
+        
       
     
     
@@ -21659,8 +21661,10 @@
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-            
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../../news/" class="md-nav__link ">
+              
   
   <span class="md-ellipsis">
     News
@@ -21668,8 +21672,9 @@
   </span>
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+            </a>
+            
+          </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
@@ -21678,26 +21683,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../news" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    None
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -22259,7 +22244,7 @@
 </details>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>There are multiple ways an application can implement certificate pinning, including via the Android Network Security Config, custom TrustManager implementations, third-party libraries, and native code. Since some implementations might be difficult to identify through static analysis, especially when obfuscation or dynamic code loading is involved, this test uses network interception techniques to determine if certificate pinning is enforced at runtime.</p>
-<p>The goal of this test case is to observe whether a <a href="&quot;../../../0x04f-Testing-Network-Communication.md#intercepting-network-traffic-through-mitm">MITM attack</a> can intercept HTTPS traffic from the app. A successful MITM interception indicates that the app is either not using certificate pinning or implementing it incorrectly.</p>
+<p>The goal of this test case is to observe whether a <a href="../../../../0x04f-Testing-Network-Communication/#intercepting-network-traffic-through-mitm">MITM attack</a> can intercept HTTPS traffic from the app. A successful MITM interception indicates that the app is either not using certificate pinning or implementing it incorrectly.</p>
 <p>If the app is properly implementing certificate pinning, the MITM attack should fail because the app rejects certificates issued by an unauthorized CA, even if the CA is trusted by the system.</p>
 <p><em>Testing Tip:</em> While performing the MITM attack, it can be useful to monitor the system logs (see <em><a href="../../../../techniques/android/MASTG-TECH-0009/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 9a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5m-3.07-.85L2 20.59 3.41 22 15.85 9.57c-.6-.33-1.09-.82-1.42-1.42M13 5l.63-1.37L15 3l-1.37-.63L13 1l-.62 1.37L11 3l1.38.63zm8 0 .63-1.37L23 3l-1.37-.63L21 1l-.62 1.37L19 3l1.38.63zm0 4-.62 1.37L19 11l1.38.63L21 13l.63-1.37L23 11l-1.37-.63z"/></svg></span> Monitoring System Logs</a></em>). If a certificate pinning/validation check fails, an event similar to the following log entry might be visible, indicating that the app detected the MITM attack and did not establish a connection.</p>
 <p><code>I/X509Util: Failed to validate the certificate chain, error: Pin verification failed</code></p>
