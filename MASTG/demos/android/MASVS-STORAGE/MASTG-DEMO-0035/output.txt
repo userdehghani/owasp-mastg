@@ -1,2 +1,0 @@
-profileInstalled
-secret.txt
